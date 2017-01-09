@@ -215,14 +215,15 @@ class SquareGrid:
     def draw_me(self, canvas):
         size = 50
         for x in xrange(len(self.grid_array[0])):
-            canvas.draw_polygon(
-                [
-                    (x*size, size), 
-                    (x*size+size, size), 
-                    (x*size+size, size*2),
-                    (x*size, size*2)
-                ], 1, 'Green', 'Orange'
-            )
+            for y in xrange(len(self.grid_array[1])):
+                canvas.draw_polygon(
+                    [
+                        (x*size, y*size - size), 
+                        (x*size+size, y*size - size), 
+                        (x*size+size, y*size*2 - size),
+                        (x*size, y*size*2 - size)
+                    ], 1, 'Green', 'Orange'
+                )
             
 cliq = Character()            
 grid = SquareGrid()                
