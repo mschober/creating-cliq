@@ -85,11 +85,11 @@ class Character:
     def bumps_into_left_wall(self):
         return self.circle_shape.center_point[0] <= self.circle_shape.radius
             
-    def morph_into_big_red(self):
+    def morph_into_red_dot(self):
         self.shape_attributes.fill_color = "Red"
         self.circle_shape.radius = 50
         
-    def morph_into_little_black_dot(self):
+    def morph_into_black_dot(self):
         self.shape_attributes.fill_color = "Black"
         self.circle_shape.radius = 9
 
@@ -121,10 +121,10 @@ class Character:
         )
         
         if self.bumps_into_left_wall():
-            self.morph_into_big_red()
+            self.morph_into_red_dot()
         
         if self.bumps_into_right_wall():
-            self.morph_into_little_black_dot()
+            self.morph_into_black_dot()
             
         if self.bumps_into_ceiling():
             self.morph_into_pink_dot()
@@ -238,31 +238,4 @@ frame.set_draw_handler(draw)
 frame.set_keydown_handler(cliq.move) #for move circle******
 
 frame.start()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
