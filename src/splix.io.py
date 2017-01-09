@@ -93,9 +93,16 @@ class Character:
         self.shape_attributes.fill_color = "Black"
         self.circle_shape.radius = 9
 
+    def morph_into_pink_dot(self):
+        self.shape_attributes.fill_color = "Pink"
+        self.circle_shape.radius = 30
+        
     def bumps_into_right_wall(self):
         return self.circle_shape.center_point[0] >= WINDOW_WIDTH-self.circle_shape.radius
     
+    def bumps_into_ceiling(self):
+        return self.circle_shape.center_point[1] <= self.circle_shape.radius
+            
     def save_me(self):
         segment = self.circle_shape.center_point
         self.body.append(segment)
@@ -119,9 +126,8 @@ class Character:
         if self.bumps_into_right_wall():
             self.morph_into_little_black_dot()
             
-        if self.circle_shape.center_point[1] <= self.circle_shape.radius :
-            self.shape_attributes.fill_color = "Pink"
-            self.circle_shape.radius = 30
+        if self.bumps_into_ceiling():
+            self.morph_into_pink_dot()
             
         if self.circle_shape.center_point[1] >= WINDOW_HEIGHT-self.circle_shape.radius :
             self.shape_attributes.fill_color = "Purple"
