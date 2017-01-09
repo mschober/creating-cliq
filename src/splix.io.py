@@ -97,12 +97,19 @@ class Character:
         self.shape_attributes.fill_color = "Pink"
         self.circle_shape.radius = 30
         
+    def morph_into_purple_dot(self):
+        self.shape_attributes.fill_color = "Purple"
+        self.circle_shape.radius = 60
+        
     def bumps_into_right_wall(self):
         return self.circle_shape.center_point[0] >= WINDOW_WIDTH-self.circle_shape.radius
     
     def bumps_into_ceiling(self):
         return self.circle_shape.center_point[1] <= self.circle_shape.radius
-            
+    
+    def bumps_into_floor(self):
+        return self.circle_shape.center_point[1] >= WINDOW_HEIGHT-self.circle_shape.radius 
+    
     def save_me(self):
         segment = self.circle_shape.center_point
         self.body.append(segment)
@@ -129,9 +136,8 @@ class Character:
         if self.bumps_into_ceiling():
             self.morph_into_pink_dot()
             
-        if self.circle_shape.center_point[1] >= WINDOW_HEIGHT-self.circle_shape.radius :
-            self.shape_attributes.fill_color = "Purple"
-            self.circle_shape.radius = 60
+        if self.bumps_into_floor():
+            self.morph_into_purple_dot()
         
         #self.circle_shape.center_point[1] += vel[1]
            
@@ -238,4 +244,5 @@ frame.set_draw_handler(draw)
 frame.set_keydown_handler(cliq.move) #for move circle******
 
 frame.start()
+
 
