@@ -203,12 +203,26 @@ class SquareGrid:
     def init_grid(self, width, height):
         grid_elements = []
         for x in xrange(0, width, 50):
+            ylist = []
             for y in xrange(0, height, 50):
                 #print 'DEBUG - adding grid el %s, %s' % (x,y)
-                grid_elements.append(self.GridElement())
+                ylist.append(self.GridElement())
+            grid_elements.append(ylist)
+        #print "DEBUG - size is: %s" % str(map(lambda x: str(len(x)), grid_elements))
+
+        return grid_elements
     
     def draw_me(self, canvas):
-        pass
+        size = 50
+        for x in xrange(len(self.grid_array[0])):
+            canvas.draw_polygon(
+                [
+                    (x*size, size), 
+                    (x*size+size, size), 
+                    (x*size+size, size*2),
+                    (x*size, size*2)
+                ], 1, 'Green', 'Orange'
+            )
             
 cliq = Character()            
 grid = SquareGrid()                
