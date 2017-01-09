@@ -208,7 +208,7 @@ class SquareGrid:
                 #print 'DEBUG - adding grid el %s, %s' % (x,y)
                 ylist.append(self.GridElement())
             grid_elements.append(ylist)
-        #print "DEBUG - size is: %s" % str(map(lambda x: str(len(x)), grid_elements))
+        print "DEBUG - size is: %s" % str(map(lambda x: str(len(x)), grid_elements))
 
         return grid_elements
     
@@ -216,12 +216,17 @@ class SquareGrid:
         size = 50
         for x in xrange(len(self.grid_array[0])):
             for y in xrange(len(self.grid_array[1])):
+                print "DEBUG - x,y is %s,%s" % (x,y)
                 canvas.draw_polygon(
                     [
-                        (x*size, y*size - size), 
-                        (x*size+size, y*size - size), 
-                        (x*size+size, y*size*2 - size),
-                        (x*size, y*size*2 - size)
+                        #(x*size, y*size - size), 
+                        #(x*size+size, y*size - size), 
+                        #(x*size+size, y*size*2 - size),
+                        #(x*size, y*size*2 - size)
+                        (x*size, y*size),
+                        ((x+1)*size, y*size),
+                        ((x+1)*size, (y+1)*size),
+                        (x*size, (y+1)*size)
                     ], 1, 'Green', 'Orange'
                 )
             
