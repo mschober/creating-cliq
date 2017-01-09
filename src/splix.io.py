@@ -189,6 +189,10 @@ class Character:
         
 
 class SquareGrid:
+    
+    class GridElement:
+        def __init__(self):
+            self.filled = False
 
     def __init__(self):
         self.grid_array = self.init_grid(
@@ -197,7 +201,11 @@ class SquareGrid:
         )
         
     def init_grid(self, width, height):
-        pass
+        grid_elements = []
+        for x in xrange(0, width, 50):
+            for y in xrange(0, height, 50):
+                #print 'DEBUG - adding grid el %s, %s' % (x,y)
+                grid_elements.append(self.GridElement())
     
     def draw_me(self, canvas):
         pass
@@ -244,5 +252,4 @@ frame.set_draw_handler(draw)
 frame.set_keydown_handler(cliq.move) #for move circle******
 
 frame.start()
-
 
