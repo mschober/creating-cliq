@@ -1,4 +1,4 @@
-# Heading
+# Python Animation - 2D Arcade Game (**splix.io**)
 
 ## Session 01
 > something about session 01
