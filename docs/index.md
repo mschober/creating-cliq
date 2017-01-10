@@ -3,7 +3,7 @@
 
 ## Session 01
 > "Hello World!" and other prefunctory activities.
-* [Session 01](docs/session_01)
+* [Session 01](docs/session01)
 
 ## Session 02
 > Creating a circle shape character.
