@@ -21,4 +21,5 @@
 > Trailing tails for the character.
 
 ## Session 07
-> Constructing a grid.
+> A grid to move on.
+* [Session 07](session07)
