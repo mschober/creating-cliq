@@ -7,7 +7,7 @@
 > To construct the grid a square size that fits evenly in the screen dimensions needs to be selected. Then a 2D array needs to be built to represent rows and columns of the grid. Each cell (a row,col square in the grid) needs to be initialized with `is_highlighted=False`. Whenever a player consumes a free cell, `is_highlighted` will be flipped to `True`. When rendering the screen highlighted cells will be displayed.
 
 ### Creating a square from scratch
-1. Open a new [codeskulptor](codeskulptor.org).
+1. Open a new [codeskulptor](http://www.codeskulptor.org).
 2. Search in the docs for `draw_polygon`.
 3. Remove button, hello message text from skulptor.
 4. Construct a C shape to complete a square.
