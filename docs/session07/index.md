@@ -11,6 +11,8 @@
 2. Search in the docs for `draw_polygon`.
 3. Remove button, hello message text from skulptor.
 4. Construct a C shape to complete a square.
+  - Identify the top left point (hint: [0,0])
+  - Identify the rest of the points around the C based on that start point
 
 ![square](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLRDhkNWdYUHpmNjA)
 
