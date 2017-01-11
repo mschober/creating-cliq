@@ -11,6 +11,7 @@
 2. Search in the docs for `draw_polygon`.
 3. Remove button, hello message text from skulptor.
 4. Construct a C shape to complete a square.
+
 ![square](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLTW1JVHNJczdudmM)
 
 ### Creating a square anywhere
