@@ -3,6 +3,7 @@
 
 ## Session 01
 > "Hello World!" and other prefunctory activities.
+
 * [Session 01](session01)
 
 ## Session 02
@@ -22,4 +23,5 @@
 
 ## Session 07
 > A grid to move on.
+
 * [Session 07](session07)
