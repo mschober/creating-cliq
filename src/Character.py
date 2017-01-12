@@ -1,3 +1,42 @@
+class ShapeAttributes:
+    def __init__ (self):
+        self.line_width = 2
+        self.line_color = "Aqua"
+        self.fill_color = "Pink"
+        
+        # For color: http://www.codeskulptor.org/docs.html#Colors
+        
+
+class Circle:
+    def __init__ (self):
+        self.radius = 3
+        self.center_point = (100, 100)
+    
+    '''
+    def update_x (self, shift_x):
+        self.center_point = (
+            self.center_point[0] + shift_x,
+            self.center_point[1]
+        )
+    
+    def update_y (self, shift_y):
+        self.center_point = (
+            self.center_point[0],
+            self.center_point[1] + shift_y
+        )
+    '''
+    
+class Body:
+    
+    def __init__(self):
+        self.body_segments = []
+        
+    def append(self, segment):
+        self.body_segments.append(segment)
+        
+    def list_segments(self):
+        return list(self.body_segments)
+
 class Character:
     key_map = {
         "left": 37,
