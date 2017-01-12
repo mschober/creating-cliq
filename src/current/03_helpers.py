@@ -7,3 +7,4 @@ def rect_coords (length, height, startpos = (0, 0)) :
         (x + length, y + height),
         (x + length, y)  
     ]
+

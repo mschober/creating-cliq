@@ -157,4 +157,4 @@ class Character:
                 
                 #self.circle_shape.update_y(Character.move_dist)
                 Character.vel = [0, Character.move_dist]
-    
+
