@@ -9,10 +9,10 @@
 ### Creating a square from scratch
 1. Open a new [codeskulptor](http://www.codeskulptor.org).
 2. Search in the docs for `draw_polygon`.
-3. Remove click mebutton, hello message text, and click function from skulptor.
-4. Construct a ] shape to complete a square.
+3. Remove click me button, hello message text, and click function from skulptor.
+4. Construct a backwards C shape to complete a square.
   - Identify the top left point (hint: [0,0])
-  - Identify the rest of the points around the ] based on that start point
+  - Identify the rest of the points around the C based on that start point
 
 ![square](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLRDhkNWdYUHpmNjA)
 
