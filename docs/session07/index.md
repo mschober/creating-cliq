@@ -84,54 +84,8 @@ DIRECTION_TO_KEY_MAP = {
     "down": 40
 }
 ```
-
-
+ - Then we need to manage the keydown handler
 ```python
-import simplegui, time
-import random
-class Square:
-    def __init__(self, size, points):
-        self.size = size
-        self.pixels = self.to_pixels(points)
-        
-    def to_pixels(self, points):
-        pixels = []
-        for point in points:
-            npt = (
-                point[0] * self.size, 
-                point[1] * self.size)
-            pixels.append(npt)
-        return pixels
-    
-                   
-    
-    def draw(self, canvas):
-        canvas.draw_polygon(self.pixels, 1, 'Blue', 'Green'
-        )
-    
-grid = {}
-x = random.randint(0,9)
-y = random.randint(0,9)
-
-
-
-def draw(canvas):
-    for square in grid.values():
-        square.draw(canvas)
-
-KEY_TO_DIRECTION_MAP = {
-    37: "left",
-    38: "up",
-    39: "right",
-    40: "down"
-}
-        
-DIRECTION_TO_KEY_MAP = {
-    "left": 37,
-    "up": 38,
-    "right": 39,
-    "down": 40
-}
 def move(key):
     global x
     global y
@@ -143,27 +97,15 @@ def move(key):
         )
         print len(grid)
     if key == DIRECTION_TO_KEY_MAP["left"]:
-        x = x -1
-        y = y
+        #update the x
+        #update the y
         update_square(x,y)
     if key == DIRECTION_TO_KEY_MAP["up"]:
-        x = x
-        y = y - 1
+        #update the x
+        #update the y
         update_square(x,y)
     if key == DIRECTION_TO_KEY_MAP["right"]:
-        x = x + 1
-        y = y
+        #update the x
+        #update the y
         update_square(x,y)
-    if key == DIRECTION_TO_KEY_MAP["down"]:
-        x = x
-        y = y + 1
-        update_square(x,y)
-    
-# Create a frame and assign callbacks to event handlers
-frame = simplegui.create_frame("Home", 500, 500)
-frame.set_draw_handler(draw)
-frame.set_keydown_handler(move)
-
-# Start the frame animation
-frame.start()
 ```
