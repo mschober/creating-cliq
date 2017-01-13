@@ -27,7 +27,7 @@
    - At the last minute when it is time to render the square we'll convert to pixel locations.
    - So what are the coordinates of the random square?
        - Y is easy => 2 (don't forget we are 0-based indexing!)
-       - X is tougher => random[0, 9]
+       - X is tougher => random from 0 to 9
          - Example square coordinates for start point: (3, 2)
          - [(3,2), (4,2), (4,3), (3,3)]
    - This doesn't explain how to actually paint the square though.
