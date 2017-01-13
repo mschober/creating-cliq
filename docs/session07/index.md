@@ -18,7 +18,7 @@
 
 ### Creating a square anywhere
 1. Add an import at the top to include the `random` module.
-2. Recall that `random.randint(<begin>,<end>)` can produce random integers.
+2. Recall that `random.randint(0,5)` would produce a random number between 0 and 5.
 3. Given a square size of **50**.
    - How many squares will fit across?
    - How many squares will fit down?
