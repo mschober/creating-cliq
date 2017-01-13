@@ -44,8 +44,8 @@ rando_square = Square(50,
     ]
 )
 ```
-     
-     - Is it hard to accomplish a random_x,random_y now?
+  
+  * Is it hard to accomplish a random_x,random_y now?
  
 ### Creating a 2D grid of sqaures
 
