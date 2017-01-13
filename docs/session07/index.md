@@ -34,7 +34,17 @@
        - Loop over the points in the square
        - For each x and each y multiple by the size
          - [(150,100), (200,100), (200,150), (150,150)]
-
+   - Here is some code that will get you started on the random_x square.
+```python
+rand_x = random.randint(0,9)
+rando_square = Square(50,
+    [
+        (rand_x,2), (rand_x+1,2), (rand_x+1,3), (rand_x,3)
+    ]
+)
+```
+  - Is it hard to accomplish a random_x,random_y now?
+ 
 ### Creating a 2D grid of sqaures
 
 ## Picking the closest row,col on the grid
