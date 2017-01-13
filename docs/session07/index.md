@@ -9,14 +9,31 @@
 ### Creating a square from scratch
 1. Open a new [codeskulptor](http://www.codeskulptor.org).
 2. Search in the docs for `draw_polygon`.
-3. Remove button, hello message text from skulptor.
-4. Construct a C shape to complete a square.
+3. Remove click mebutton, hello message text, and click function from skulptor.
+4. Construct a ] shape to complete a square.
   - Identify the top left point (hint: [0,0])
-  - Identify the rest of the points around the C based on that start point
+  - Identify the rest of the points around the ] based on that start point
 
 ![square](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLRDhkNWdYUHpmNjA)
 
 ### Creating a square anywhere
+1. Add an import at the top to include the `random` module.
+2. Recall that `random.randint(<begin>,<end>)` can produce random integers.
+3. Given a square size of **50**.
+   - How many squares will fit across?
+   - How many squares will fit down?
+4. Suppose you want to randomely choose a square to build in the 3rd row.
+   - Instead of counting in pixels we'll count in integers based on which row,col we are in.
+   - At the last minute when it is time to render the square we'll convert to pixel locations.
+   - So what are the coordinates of the random square?
+       - Y is easy => 2 (don't forget we are 0-based indexing!)
+       - X is tougher => random[0, 9]
+         - Example square coordinates for start point: (3, 2)
+         - [(3,2), (4,2), (4,3), (3,3)]
+   - This doesn't explain how to actually paint the square though.
+       - Loop over the points in the square
+       - For each x and each y multiple by the size
+         - [(150,100), (200,100), (200,150), (150,150)]
 
 ### Creating a 2D grid of sqaures
 
