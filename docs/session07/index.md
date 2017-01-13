@@ -37,12 +37,25 @@
    - Here is some code that will get you started on the random_x square.
 
 ```python
+class Square:
+    def __init__(self, size, points):
+        self.size = size
+        self.points = self.to_pixels(points)
+        
+    def to_pixels(self, points):
+        pass
+    
+    def draw(self, canvas):
+        pass
+        
 rand_x = random.randint(0,9)
 rando_square = Square(50,
     [
         (rand_x,2), (rand_x+1,2), (rand_x+1,3), (rand_x,3)
     ]
 )
+
+frame.set_draw_handler(rando_square.draw)
 ```
   
   * Is it hard to accomplish a random_x,random_y now?
