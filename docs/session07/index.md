@@ -66,6 +66,26 @@ frame.set_draw_handler(rando_square.draw)
 ### Animate the sqaure based on directional keys
 > A small step towards using the grid is to move the square around the board using keys.
 
+1. First thing to do is dust off keymapping.
+ - We need a few python `dictionary` objects to map keys to directions.
+ 
+```python
+KEY_TO_DIRECTION_MAP = {
+    37: "left",
+    38: "up",
+    39: "right",
+    40: "down"
+}
+        
+DIRECTION_TO_KEY_MAP = {
+    "left": 37,
+    "up": 38,
+    "right": 39,
+    "down": 40
+}
+```
+
+
 ```python
 import simplegui, time
 import random
