@@ -60,6 +60,10 @@ frame.set_draw_handler(rando_square.draw)
   
   * Is it hard to accomplish a random_x,random_y now?
  
-### Creating a 2D grid of sqaures
-
 ## Picking the closest row,col on the grid
+> Splix snakes follow a discrete path on the grid. Meaning you can't have a snake splitting the row or the column. When the direction is changed it has to be row or by column. 
+
+### Animate the sqaure based on directional keys
+> A small step towards using the grid is to move the square around the board using keys.
+
+1. 
