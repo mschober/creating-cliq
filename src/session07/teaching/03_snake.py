@@ -15,3 +15,21 @@ class Snake:
         y = self.head.point[1]
         new_square = Square((x,y), self.head.size)
         self.add(new_square)
+        
+    def move_right(self):
+        x = self.head.point[0] + 1
+        y = self.head.point[1]
+        new_square = Square((x,y), self.head.size)
+        self.add(new_square)
+    
+    def move_up(self):
+        x = self.head.point[0]
+        y = self.head.point[1] -1
+        new_square = Square((x,y), self.head.size)
+        self.add(new_square)
+    
+    def move_down(self):
+        x = self.head.point[0]
+        y = self.head.point[1] +1
+        new_square = Square((x,y), self.head.size)
+        self.add(new_square)
