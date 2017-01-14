@@ -1,9 +1,13 @@
 SIZE = 50
 WINDOW = (500,500)
+LEFT = "LEFT"
+UP = "UP"
+RIGHT = "RIGHT"
+DOWN = "DOWN"
 
 KEYMAP = {
-    "left": 37,
-    "right": 39,
-    "down": 40,
-    "up": 38
+    LEFT: 37,
+    RIGHT: 39,
+    DOWN: 40,
+    UP: 38
 }
