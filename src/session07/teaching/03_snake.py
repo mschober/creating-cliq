@@ -33,3 +33,4 @@ class Snake:
         y = self.head.point[1] +1
         new_square = Square((x,y), self.head.size)
         self.add(new_square)
+        
