@@ -16,6 +16,6 @@ class Square(object):
     
     def draw(self, canvas):
         canvas.draw_polygon(
-        self.points, 3, "Blue", "Green"  
+        self.points, 3, *SNAKE_COLOR
     )
     
