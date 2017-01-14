@@ -85,6 +85,7 @@ DIRECTION_TO_KEY_MAP = {
 }
 ```
  - Then we need to manage the keydown handler
+ 
 ```python
 def move(key):
     global x
