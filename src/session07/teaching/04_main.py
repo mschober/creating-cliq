@@ -1,4 +1,4 @@
-home_square = Square((5, 5), 50)
+home_square = Square((5, 5), SIZE)
 the_snake = Snake(home_square)
   
 def move(key):
