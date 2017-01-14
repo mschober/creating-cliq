@@ -9,15 +9,104 @@
 ### Creating a square from scratch
 1. Open a new [codeskulptor](http://www.codeskulptor.org).
 2. Search in the docs for `draw_polygon`.
-3. Remove button, hello message text from skulptor.
-4. Construct a C shape to complete a square.
+3. Remove click me button, hello message text, and click function from skulptor.
+4. Construct a backwards C shape to complete a square.
   - Identify the top left point (hint: [0,0])
   - Identify the rest of the points around the C based on that start point
 
 ![square](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLRDhkNWdYUHpmNjA)
 
 ### Creating a square anywhere
+1. Add an import at the top to include the `random` module.
+2. Recall that `random.randint(0,5)` would produce a random number between 0 and 5.
+3. Given a square size of **50**.
+   - How many squares will fit across?
+   - How many squares will fit down?
+4. Suppose you want to randomely choose a square to build in the 3rd row.
+   - Instead of counting in pixels we'll count in integers based on which row,col we are in.
+   - At the last minute when it is time to render the square we'll convert to pixel locations.
+   - So what are the coordinates of the random square?
+       - Y is easy => 2 (don't forget we are 0-based indexing!)
+       - X is tougher => random from 0 to 9
+         - Example square coordinates for start point: (3, 2)
+         - [(3,2), (4,2), (4,3), (3,3)]
+   - This doesn't explain how to actually paint the square though.
+       - Loop over the points in the square
+       - For each x and each y multiple by the size
+         - [(150,100), (200,100), (200,150), (150,150)]
+   - Here is some code that will get you started on the random_x square.
 
-### Creating a 2D grid of sqaures
+```python
+class Square:
+    def __init__(self, size, points):
+        self.size = size
+        self.points = self.to_pixels(points)
+        
+    def to_pixels(self, points):
+        pass
+    
+    def draw(self, canvas):
+        pass
+        
+rand_x = random.randint(0,9)
+rando_square = Square(50,
+    [
+        (rand_x,2), (rand_x+1,2), (rand_x+1,3), (rand_x,3)
+    ]
+)
 
+frame.set_draw_handler(rando_square.draw)
+```
+  
+  * Is it hard to accomplish a random_x,random_y now?
+ 
 ## Picking the closest row,col on the grid
+> Splix snakes follow a discrete path on the grid. Meaning you can't have a snake splitting the row or the column. When the direction is changed it has to be row or by column. 
+
+### Animate the sqaure based on directional keys
+> A small step towards using the grid is to move the square around the board using keys.
+
+1. First thing to do is dust off keymapping.
+ - We need a few python `dictionary` objects to map keys to directions.
+ 
+```python
+KEY_TO_DIRECTION_MAP = {
+    37: "left",
+    38: "up",
+    39: "right",
+    40: "down"
+}
+        
+DIRECTION_TO_KEY_MAP = {
+    "left": 37,
+    "up": 38,
+    "right": 39,
+    "down": 40
+}
+```
+ - Then we need to manage the keydown handler
+ 
+```python
+def move(key):
+    global x
+    global y
+    def update_square(x,y):
+        grid[str(x) + "-" + str(y)] = Square(50,
+            [
+                (x,y), (x+1,y), (x+1,y+1), (x,y+1)
+            ]
+        )
+        print len(grid)
+    if key == DIRECTION_TO_KEY_MAP["left"]:
+        #update the x
+        #update the y
+        update_square(x,y)
+    if key == DIRECTION_TO_KEY_MAP["up"]:
+        #update the x
+        #update the y
+        update_square(x,y)
+    if key == DIRECTION_TO_KEY_MAP["right"]:
+        #update the x
+        #update the y
+        update_square(x,y)
+```
