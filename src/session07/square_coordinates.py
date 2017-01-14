@@ -25,15 +25,11 @@ initial_position = (x,y)
 
 def draw(canvas):
     size = 50
-    x = 3
-    y = 3 
+    x = 9
+    y = 9 
+    points = square_coordinates(size, (x,y))
     canvas.draw_polygon(
-                [
-                    (x, y),
-                    ((x+size), y),
-                    ((x+size), (y+size)),
-                    (x, (y+size))
-                ], 1, 'Green', 'Orange'
+                points, 1, 'Green', 'Orange'
             )
 
 frame = simplegui.create_frame("Home", 500,500)
