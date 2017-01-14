@@ -1,12 +1,18 @@
 import simplegui
 
 # abstract the points based on the size
+SIZE = 50
+WINDOW = (500,500)
+LEFT = "LEFT"
+UP = "UP"
+RIGHT = "RIGHT"
+DOWN = "DOWN"
 
-keymap = {
-    "left": 37,
-    "right": 39,
-    "down": 40,
-    "up": 38
+KEYMAP = {
+    LEFT: 37,
+    RIGHT: 39,
+    DOWN: 40,
+    UP: 38
 }
         
 class Square(object):
@@ -54,13 +60,13 @@ the_snake = Snake(home_square)
 def move(key):
     x = home_square.point[0]
     y = home_square.point[1]
-    if keymap["left"] == key:
+    if KEYMAP[LEFT] == key:
         the_snake.move_left()
-    elif keymap["right"] == key:
+    elif KEYMAP[RIGHT] == key:
         print "right"
-    elif keymap["up"] == key:
+    elif KEYMAP[UP] == key:
         print "up"
-    elif keymap["down"] == key:
+    elif KEYMAP[DOWN] == key:
         print "down"
     else :
         print "unused"
@@ -70,7 +76,7 @@ def draw(canvas):
         square.draw(canvas)
 
     
-frame = simplegui.create_frame("Home", 500, 500)
+frame = simplegui.create_frame("Home", *WINDOW)
 frame.set_draw_handler(draw)
 frame.set_keydown_handler(move)
 frame.start()
