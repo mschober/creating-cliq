@@ -1,4 +1,4 @@
-SIZE = 50
+SIZE = 25
 SNAKE_COLOR = ("Gold", "Purple")
 WINDOW = (500,500)
 LEFT = "LEFT"
