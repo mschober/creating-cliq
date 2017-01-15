@@ -7,11 +7,11 @@ def move(key):
     if KEYMAP[LEFT] == key:
         the_snake.move_left()
     elif KEYMAP[RIGHT] == key:
-        print "right"
+        the_snake.move_right()
     elif KEYMAP[UP] == key:
-        print "up"
+        the_snake.move_up()
     elif KEYMAP[DOWN] == key:
-        print "down"
+        the_snake.move_down()
     else :
         print "unused"
 
@@ -24,3 +24,4 @@ frame = simplegui.create_frame("Home", *WINDOW)
 frame.set_draw_handler(draw)
 frame.set_keydown_handler(move)
 frame.start()
+
