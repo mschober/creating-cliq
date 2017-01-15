@@ -74,7 +74,10 @@ class Snake:
 
     def draw(self, canvas):
         for square in self.snake_map.values():
-            square.draw(canvas)        
+            square.draw(canvas)    
+    def get_position_key(self):
+        pos_key = "%s-%s" % (self.head.point[0], self.head.point[1])
+        return pos_key
 
 class HomeBase:
     
@@ -112,12 +115,11 @@ class HomeBase:
             square.draw(canvas)
 
 home_base = HomeBase((10,10), 5)
-home_square = Square((5, 5), SIZE)
+home_square = Square((9, 7), SIZE)
 the_snake = Snake(home_square)
   
 def move(key):
-    x = home_square.point[0]
-    y = home_square.point[1]
+    global the_snake
     if KEYMAP[LEFT] == key:
         the_snake.move_left()
     elif KEYMAP[RIGHT] == key:
@@ -128,7 +130,23 @@ def move(key):
         the_snake.move_down()
     else :
         print "unused"
+        
+    snake_keys = the_snake.snake_map.keys();
+    if the_snake.get_position_key() in home_base.home_base_map.keys():
+        print "The snake is in the base, creating a new snake"
+        the_snake = Snake(the_snake.head)
+    print len(the_snake.snake_map.keys())
 
+    #if not the_snake.get_position_key() in home_base.home_base_map.keys() and len(snake_keys) == 2:
+    #    print "left the base!"
+    #    the_snake = Snake(the_snake.head)
+    #if the_snake.get_position_key() in home_base.home_base_map.keys() and len(snake_keys) != 2 :
+    #    print "into the base!"
+    #    the_snake = Snake(the_snake.head)
+    #if the_snake.get_position_key() in home_base.home_base_map.keys() and len(snake_keys) == 2 :
+    #   print "stays in the base"
+    #    the_snake = Snake(the_snake.head)
+        
 def draw(canvas):
     the_snake.draw(canvas)
     home_base.draw(canvas)
