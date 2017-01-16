@@ -27,6 +27,7 @@ def square_coords_from_grid(size, grid_spot):
 
 class Square(object):
     def __init__(self, point, size, color=SNAKE_COLOR):
+        print point
         self.size = size
         self.point = point
         self.points = square_coords_from_grid(size, point)
@@ -45,10 +46,10 @@ class Snake:
         self.head = square
         self.snake_map = {}
         self.poly_points = []
-        self.add(square)
+        self.add(square.point)
     
-    def add(self, square):
-        point = square.point
+    def add(self, point):
+        square = Square(point, self.head.size)
         pos_key = "%s-%s" % (point[0], point[1])
         self.snake_map[pos_key] = square
         self.head = square
@@ -57,26 +58,22 @@ class Snake:
     def move_left(self):
         x = self.head.point[0] - 1
         y = self.head.point[1]
-        new_square = Square((x,y), self.head.size)
-        self.add(new_square)
+        self.add((x,y))
         
     def move_right(self):
         x = self.head.point[0] + 1
         y = self.head.point[1]
-        new_square = Square((x,y), self.head.size)
-        self.add(new_square)
+        self.add((x,y))
     
     def move_up(self):
         x = self.head.point[0]
         y = self.head.point[1] -1
-        new_square = Square((x,y), self.head.size)
-        self.add(new_square)
+        self.add((x,y))
 
     def move_down(self):
         x = self.head.point[0]
         y = self.head.point[1] +1
-        new_square = Square((x,y), self.head.size)
-        self.add(new_square)
+        self.add((x,y))
 
     def draw(self, canvas):
         for square in self.snake_map.values():
