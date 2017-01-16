@@ -27,7 +27,6 @@ def square_coords_from_grid(size, grid_spot):
 
 class Square(object):
     def __init__(self, point, size, color=SNAKE_COLOR):
-        print point
         self.size = size
         self.point = point
         self.points = square_coords_from_grid(size, point)
