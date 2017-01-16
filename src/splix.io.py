@@ -44,6 +44,7 @@ class Snake:
     def __init__(self, square):
         self.head = square
         self.snake_map = {}
+        self.poly_points = []
         self.add(square)
     
     def add(self, square):
@@ -51,6 +52,7 @@ class Snake:
         pos_key = "%s-%s" % (point[0], point[1])
         self.snake_map[pos_key] = square
         self.head = square
+        self.poly_points.append(map(lambda x: x*SIZE, point))
         
     def move_left(self):
         x = self.head.point[0] - 1
@@ -78,7 +80,9 @@ class Snake:
 
     def draw(self, canvas):
         for square in self.snake_map.values():
-            square.draw(canvas)    
+            square.draw(canvas)
+        canvas.draw_polygon(self.poly_points, 3, "Red")
+        
     def get_position_key(self):
         pos_key = "%s-%s" % (self.head.point[0], self.head.point[1])
         return pos_key
