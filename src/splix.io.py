@@ -78,10 +78,12 @@ class Snake:
         self.head = Square(self.head.point, self.head.size)
 
     def draw(self, canvas):
+        self.head.draw(canvas)
         for square in self.snake_body.values():
             square.draw(canvas)
         if self.poly_points:            
             canvas.draw_polygon(self.poly_points, 3, "Red")
+        
         
     def get_position_key(self):
         pos_key = "%s-%s" % (self.head.point[0], self.head.point[1])
