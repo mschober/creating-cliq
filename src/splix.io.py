@@ -43,41 +43,45 @@ class Square(object):
 class Snake:
     def __init__(self, square):
         self.head = square
-        self.snake_map = {}
+        self.snake_body = {}
         self.poly_points = []
-        self.add(square.point)
     
-    def add(self, point):
-        square = Square(point, self.head.size)
+    def add_to_body(self):
+        point = self.head.point
         pos_key = "%s-%s" % (point[0], point[1])
-        self.snake_map[pos_key] = square
-        self.head = square
-        self.poly_points.append(map(lambda x: x*SIZE, point))
+        self.snake_body[pos_key] = self.head
+        self.poly_points.append(map(lambda x: x*SIZE, point))        
+        
+    def update(self, new_point):
+        x = self.head.point[0] + new_point[0]
+        y = self.head.point[1] + new_point[1]
+        self.head.point = (x,y)
         
     def move_left(self):
-        x = self.head.point[0] - 1
-        y = self.head.point[1]
-        self.add((x,y))
+        self.add_to_body()
+        self.update((-1,0))
+        self.head = Square(self.head.point, self.head.size)
         
     def move_right(self):
-        x = self.head.point[0] + 1
-        y = self.head.point[1]
-        self.add((x,y))
+        self.add_to_body()
+        self.update((1,0))
+        self.head = Square(self.head.point, self.head.size)
     
     def move_up(self):
-        x = self.head.point[0]
-        y = self.head.point[1] -1
-        self.add((x,y))
-
+        self.add_to_body()
+        self.update((0,-1))
+        self.head = Square(self.head.point, self.head.size)
+        
     def move_down(self):
-        x = self.head.point[0]
-        y = self.head.point[1] +1
-        self.add((x,y))
+        self.add_to_body()
+        self.update((0,1))
+        self.head = Square(self.head.point, self.head.size)
 
     def draw(self, canvas):
-        for square in self.snake_map.values():
+        for square in self.snake_body.values():
             square.draw(canvas)
-        canvas.draw_polygon(self.poly_points, 3, "Red")
+        if self.poly_points:            
+            canvas.draw_polygon(self.poly_points, 3, "Red")
         
     def get_position_key(self):
         pos_key = "%s-%s" % (self.head.point[0], self.head.point[1])
@@ -136,21 +140,13 @@ def move(key):
     else :
         print "unused"
         
-    snake_keys = the_snake.snake_map.keys();
-    if the_snake.get_position_key() in home_base.home_base_map.keys():
+    position = the_snake.get_position_key()
+    snake_keys = the_snake.snake_body.keys();
+    if position in home_base.home_base_map.keys():
         print "The snake is in the base, creating a new snake"
         the_snake = Snake(the_snake.head)
-    print len(the_snake.snake_map.keys())
-
-    #if not the_snake.get_position_key() in home_base.home_base_map.keys() and len(snake_keys) == 2:
-    #    print "left the base!"
-    #    the_snake = Snake(the_snake.head)
-    #if the_snake.get_position_key() in home_base.home_base_map.keys() and len(snake_keys) != 2 :
-    #    print "into the base!"
-    #    the_snake = Snake(the_snake.head)
-    #if the_snake.get_position_key() in home_base.home_base_map.keys() and len(snake_keys) == 2 :
-    #   print "stays in the base"
-    #    the_snake = Snake(the_snake.head)
+    if position in the_snake.snake_body:
+        print "found that snake!"
         
 def draw(canvas):
     the_snake.draw(canvas)
