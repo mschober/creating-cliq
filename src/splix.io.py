@@ -22,7 +22,7 @@ def square_coords_from_grid(size, grid_spot):
     scaled_points = map(lambda point:
                         (point[0]*size,point[1]*size), 
                         points)
-    print scaled_points
+    #print scaled_points
     return scaled_points
 
 class Square(object):
@@ -45,14 +45,20 @@ class Snake:
         self.head = square
         self.snake_body = {}
         self.poly_points = []
+        self.point_sum = [0,0]
     
     def add_to_body(self):
         point = self.head.point
         pos_key = "%s-%s" % (point[0], point[1])
         self.snake_body[pos_key] = self.head
-        self.poly_points.append(map(lambda x: x*SIZE, point))        
+        self.poly_points.append(map(lambda x: x*SIZE, point))
         
     def update(self, new_point):
+        self.point_sum = (
+            self.point_sum[0] + new_point[0],
+            self.point_sum[1] + new_point[1],
+        )       
+        print self.point_sum
         x = self.head.point[0] + new_point[0]
         y = self.head.point[1] + new_point[1]
         self.head.point = (x,y)
