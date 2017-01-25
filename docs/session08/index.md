@@ -6,4 +6,4 @@
 ## Reviewing last week
 > Take a look at where we left off last week. Using the existing velocity snake we added a grid to the board. If you didn't get a chance to complete the entire grid or randomize it, you can see the working code as well.
 
-#### [Last Weeks Code](../../src/session08/from_last_week.py)
+#### [Last Weeks Code](src/session08/from_last_week.py)
