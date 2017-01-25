@@ -8,7 +8,7 @@
 
 #### [Last Weeks Code](from_last_week.md)
 
-### Remove the grid
+### Remove the grid and stop the snake
 > Now that we can create squares on the screen we want to clear it up again and create a blank canvas. 
 
 > Comment the following lines
@@ -37,6 +37,6 @@
 ```python
 # frame.set_keydown_handler(cliq.move) #for move circle******
 ```
+> Then run the program and there should be nothing on the screen and no errors.
 
-### Stop the snake for now
-> 
+
