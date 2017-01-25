@@ -1,3 +1,4 @@
+```python
 import simplegui, time, random
 
 WINDOW_WIDTH = 500
@@ -241,3 +242,4 @@ frame.set_draw_handler(draw)
 frame.set_keydown_handler(cliq.move) #for move circle******
 
 frame.start()
+```
