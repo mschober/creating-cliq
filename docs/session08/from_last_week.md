@@ -1,3 +1,5 @@
+##### [Back](index.md)
+
 ```python
 import simplegui, time, random
 
