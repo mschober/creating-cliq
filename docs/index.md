@@ -25,3 +25,8 @@
 > A grid to move on.
 
 * [Session 07](session07)
+
+## Session 08
+> Snake on the grid.
+
+* [Session 08](session08)
