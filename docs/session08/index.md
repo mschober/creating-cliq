@@ -66,3 +66,43 @@ base = HomeBase()
 ```python
 base.draw_me(canvas)
 ```
+
+* Create a square class and add points to the map
+```python
+class Square:
+    
+    DEFAULT_SIZE = 15
+    def __init__(self, top_left_point):
+        (x,y) = top_left_point
+        self.points = rect_coords(
+            self.DEFAULT_SIZE,
+            self.DEFAULT_SIZE,
+            (x,y)
+        )
+                
+class HomeBase:
+    
+    def __init__(self):
+        self.base_map = self.init_base((0,0), 10)
+    
+    def init_base(self, start_pos, size):
+        base_map = {}
+        for x in range(size):
+            for y in range(size):
+                element_key = self.create_key((x,y))
+                base_map[element_key] = Square((x,y))
+        return base_map
+    
+    def create_key(self, top_left_point):
+        (x,y) = top_left_point
+        return "%s-%s" % (x,y)
+    
+    def draw_me(self, canvas):
+        points = self.base_map["0-0"].points
+        canvas.draw_polygon(
+            points,
+            3,
+            "Red",
+            "Blue"
+        )
+```
