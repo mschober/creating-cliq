@@ -62,6 +62,25 @@
 ### Might look like this: grid printed on top of itself
 ![grid printed on top of itself](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLZjRodENhQ0JqWjQ)
 
+* Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/2160b0e0dc10cd7f235df5440894907c32aab626)
+
+> The intention of the above loops is not to shift the square by 1 pixel each time through the loop, but instead shift it by an entire square each time through the loop. The easiest way to shift by 1 square instead of 1 pixel is to multiple x and y by the size of the square.
+
+```python
+    def init_grid(self, width, height):
+        grid_elements = []
+        for x in range(10):
+            for y in range(10):
+                grid_elements.append((x*50,y*50))
+        return grid_elements
+```
+
+### Might look like this: paint the screen with squares
+![paint the screen with squares](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLNjA5cU1oODk1SlE)
+
+* Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/a6eed59a14511f28c654411bb9905fbee4ffbf9a)
+
+
 #### Adding a base object
 > Create the base object template.
 
