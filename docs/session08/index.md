@@ -107,4 +107,7 @@ class HomeBase:
         )
 ```
 
-> If you are super on top of it, you'll notice that `rect_coords` handles giving you back the 4 points in the square, but each iteration through the loop we are only increment the x and y by 1 instead of by the size of the square. This will result in squares printing on top of eachother.
+> If you are super on top of it, you'll notice that `rect_coords` handles giving you back the 4 points in the square, but each iteration through the loop we are only increment the x and y by 1 instead of by the size of the square. This will result in squares printing on top of eachother. To solve this problem the squares top left point needs to be shifted by the size of the square before calculating the rectangular coordinates. This can be done in the square class.
+
+### Shifting squares in the base
+> 
