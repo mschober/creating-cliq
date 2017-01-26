@@ -208,12 +208,12 @@ class Character:
 class Square:
     
     DEFAULT_SIZE = 15
-    def __init__(self, top_left_point):
+    def __init__(self, top_left_point, size):
         (x,y) = top_left_point
         self.points = rect_coords(
-            self.DEFAULT_SIZE,
-            self.DEFAULT_SIZE,
-            (x,y)
+            size,
+            size,
+            (x*size,y*size)
         )
                 
 class HomeBase:
@@ -221,12 +221,13 @@ class HomeBase:
     def __init__(self):
         self.base_map = self.init_base((0,0), 10)
     
-    def init_base(self, start_pos, size):
+    def init_base(self, start_pos, count):
+        size = 15
         base_map = {}
-        for x in range(size):
-            for y in range(size):
+        for x in range(count):
+            for y in range(count):
                 element_key = self.create_key((x,y))
-                base_map[element_key] = Square((x,y))
+                base_map[element_key] = Square((x+10,y+10), size)
         return base_map
     
     def create_key(self, top_left_point):
@@ -234,13 +235,14 @@ class HomeBase:
         return "%s-%s" % (x,y)
     
     def draw_me(self, canvas):
-        points = self.base_map["0-0"].points
-        canvas.draw_polygon(
-            points,
-            3,
-            "Red",
-            "Blue"
-        )
+        for square in self.base_map.values():
+            points = square.points
+            canvas.draw_polygon(
+                points,
+                3,
+                "Red",
+                "Blue"
+            )
     
 #cliq = Character()            
 #grid = SquareGrid()
