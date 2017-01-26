@@ -28,6 +28,7 @@
 # frame.set_keydown_handler(cliq.move) #for move circle******
 ```
 > Then run the program and there should be just a grid on the screen and no errors.
+* A diff of the code is [here](https://github.com/bellcodo/creating-cliq/commit/68eb14b7d80d20be96aa9ae07f1fb2a08d0aac59)
 
 
 #### Adding a base object
