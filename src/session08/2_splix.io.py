@@ -25,7 +25,7 @@ class SquareGrid:
         grid_elements = []
         for x in range(10):
             for y in range(10):
-                grid_elements.append((x,y))
+                grid_elements.append((x*50,y*50))
         return grid_elements
 
     def draw_me(self, canvas):
