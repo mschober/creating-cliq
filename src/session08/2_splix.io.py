@@ -205,7 +205,7 @@ class Character:
                 #self.circle_shape.update_y(Character.move_dist)
                 Character.vel = [0, Character.move_dist]
 
-cliq = Character()            
+#cliq = Character()            
 grid = SquareGrid()                
 
 
@@ -223,9 +223,9 @@ def draw(canvas):
     global ticker 
     ticker += 1
     if ticker == 3:
-        cliq.save_me()    
+        #cliq.save_me()    
         ticker = 0
-    cliq.draw_me(canvas)    # draw circle
+    #cliq.draw_me(canvas)    # draw circle
     grid.draw_me(canvas)    # draw grid
 
 
@@ -238,6 +238,6 @@ frame = simplegui.create_frame("Home", WINDOW_WIDTH, WINDOW_HEIGHT)
 frame.set_canvas_background("Silver")
 
 frame.set_draw_handler(draw)
-frame.set_keydown_handler(cliq.move) #for move circle******
+#frame.set_keydown_handler(cliq.move) #for move circle******
 
 frame.start()
