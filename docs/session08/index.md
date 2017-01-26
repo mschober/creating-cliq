@@ -80,6 +80,7 @@
 
 * Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/a6eed59a14511f28c654411bb9905fbee4ffbf9a)
 
+> Let me diverve for a moment and comment on [code smells](https://martinfowler.com/bliki/CodeSmell.html) (and examples [here](https://sourcemaking.com/refactoring)). When you see something that doesn't quite sit right in your tummy, or is commonly an issue later it usually indicates a code smell. Code smells are early warning signs that you should do some [refactoring](http://wiki.c2.com/?WhatIsRefactoring) to clean them up. 
 
 #### Adding a base object
 > Create the base object template.
