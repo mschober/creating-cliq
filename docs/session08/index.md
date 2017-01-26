@@ -39,4 +39,30 @@
 ```
 > Then run the program and there should be nothing on the screen and no errors.
 
+#### Adding a base object
+> Create the base object template.
 
+```python
+class HomeBase:
+    
+    def __init__(self):
+        self.base_map = self.init_base((0,0), 10)
+    
+    def init_base(self, start_pos, size):
+        pass
+    
+    def draw_me(self, canvas):
+        pass
+```
+
+* Create a base
+
+```python
+base = HomeBase()
+```
+
+* Draw the base in the global draw method
+
+```python
+base.draw_me(canvas)
+```
