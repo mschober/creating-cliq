@@ -205,15 +205,52 @@ class Character:
                 #self.circle_shape.update_y(Character.move_dist)
                 Character.vel = [0, Character.move_dist]
 
-cliq = Character()            
-grid = SquareGrid()                
-
+class Square:
+    
+    DEFAULT_SIZE = 15
+    def __init__(self, top_left_point):
+        (x,y) = top_left_point
+        self.points = rect_coords(
+            self.DEFAULT_SIZE,
+            self.DEFAULT_SIZE,
+            (x,y)
+        )
+                
+class HomeBase:
+    
+    def __init__(self):
+        self.base_map = self.init_base((0,0), 10)
+    
+    def init_base(self, start_pos, size):
+        base_map = {}
+        for x in range(size):
+            for y in range(size):
+                element_key = self.create_key((x,y))
+                base_map[element_key] = Square((x,y))
+        return base_map
+    
+    def create_key(self, top_left_point):
+        (x,y) = top_left_point
+        return "%s-%s" % (x,y)
+    
+    def draw_me(self, canvas):
+        points = self.base_map["0-0"].points
+        canvas.draw_polygon(
+            points,
+            3,
+            "Red",
+            "Blue"
+        )
+    
+#cliq = Character()            
+#grid = SquareGrid()
+base = HomeBase()
 
 ticker = 0
 def draw(canvas):
 
-        #canvas.draw_polygon(point_list, 
-        #line_width, line_color, fill_color = color)    
+    #canvas.draw_polygon(point_list, 
+    #line_width, line_color, fill_color = color)    
     box1 = rect_coords(WINDOW_WIDTH, WINDOW_HEIGHT, startpos = (0, 0))
     #box2 = rect_coords(480, 480, startpos = (20, 20))
     canvas.draw_polygon(box1, 20, "Aqua") #draw rectangle
@@ -223,12 +260,12 @@ def draw(canvas):
     global ticker 
     ticker += 1
     if ticker == 3:
-        cliq.save_me()    
+        #cliq.save_me()    
         ticker = 0
-    cliq.draw_me(canvas)    # draw circle
-    grid.draw_me(canvas)    # draw grid
+    #cliq.draw_me(canvas)    # draw circle
+    #grid.draw_me(canvas)    # draw grid
+    base.draw_me(canvas)
     
-       
     return
  
 
@@ -238,6 +275,6 @@ frame = simplegui.create_frame("Home", WINDOW_WIDTH, WINDOW_HEIGHT)
 frame.set_canvas_background("Silver")
 
 frame.set_draw_handler(draw)
-frame.set_keydown_handler(cliq.move) #for move circle******
+#frame.set_keydown_handler(cliq.move) #for move circle******
 
 frame.start()
