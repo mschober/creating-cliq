@@ -23,12 +23,9 @@ class SquareGrid:
 
     def init_grid(self, width, height):
         grid_elements = []
-        for pos in range(random.randint(0,99)):
-            grid_elements.append(
-                tuple(
-                    map(lambda x: x * 50, (random.randint(0,9), random.randint(0,9)))
-                )
-            )
+        for x in range(10):
+            for y in range(10):
+                grid_elements.append((x,y))
         return grid_elements
 
     def draw_me(self, canvas):
