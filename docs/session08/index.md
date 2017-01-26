@@ -106,3 +106,5 @@ class HomeBase:
             "Blue"
         )
 ```
+
+> If you are super on top of it, you'll notice that `rect_coords` handles giving you back the 4 points in the square, but each iteration through the loop we are only increment the x and y by 1 instead of by the size of the square. This will result in squares printing on top of eachother.
