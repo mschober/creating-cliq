@@ -28,7 +28,11 @@
 # frame.set_keydown_handler(cliq.move) #for move circle******
 ```
 > Then run the program and there should be just a grid on the screen and no errors.
+
 * A diff of the code is [here](https://github.com/bellcodo/creating-cliq/commit/68eb14b7d80d20be96aa9ae07f1fb2a08d0aac59)
+
+### Might look like this: random grid
+![random grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLUTdfeGpHUWt0SFU)
 
 > The grid initialization from last week is difficult to understand, lets simplify it as our first change.
 
@@ -44,9 +48,6 @@
         return grid_elements
 ```
 
-### Might look like this
-![random grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLUTdfeGpHUWt0SFU)
-
 > Instead of using maps and lambdas, lets just loop for all the rows and all the columns. To do so create an outer loop of x and an inner loop for y.
 
 ```python
@@ -58,8 +59,8 @@
         return grid_elements
 ```
 
-### Might look like this
-![random grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLZjRodENhQ0JqWjQ)
+### Might look like this: grid printed on top of itself
+![grid printed on top of itself](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLZjRodENhQ0JqWjQ)
 
 #### Adding a base object
 > Create the base object template.
