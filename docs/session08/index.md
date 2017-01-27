@@ -183,6 +183,49 @@
 
 * Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/5373c20c9c66a83be7b37de5c79cbb69c8caa982)
 
+### Cleaning up draw_me for the grid
+> Since we are examining draw_me to refactor the other use of the class constant, what else stand out to you? What about drawing polygons doesn't *feel* right?
+
+> Shouldn't those points be calculated using the rect_coords function?
+
+* From dirty to
+
+    ```python
+        def draw_me(self, canvas):
+            size = 50
+            for pos in self.grid_elements:
+                x = pos[0]
+                y = pos[1]
+                canvas.draw_polygon(
+                    [
+                        (x, y),
+                        ((x+size), y),
+                        ((x+size), (y+size)),
+                        (x, (y+size))
+                    ], 1, 'Green', 'Orange'
+                )
+    ```
+* Clean!
+
+    ```python
+        def draw_me(self, canvas):
+            size = self.SQUARE_PIXEL_SIZE
+            for pos in self.grid_elements:
+                x = pos[0]
+                y = pos[1]
+                canvas.draw_polygon(
+                    rect_coords(size, size, (x,y)),
+                    1, 'Green', 'Orange'
+                )
+    ```
+    
+> In this case its not how many lines of code got replaced to clean up; instead look at the beauty in simplicity by reusing the fuction.
+
+### Might look like this: clean grid
+![clean grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLYUplY3A4WE1Nd1E)
+
+* Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/087beac8c283ec24c2f9b1fbc7ec0b91b5b5e348)
+
 #### Adding a base object
 > Create the base object template.
 
