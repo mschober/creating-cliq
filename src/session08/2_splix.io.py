@@ -41,7 +41,7 @@ class SquareGrid:
         return grid_elements
 
     def draw_me(self, canvas):
-        size = 50
+        size = self.SQUARE_PIXEL_SIZE
         for pos in self.grid_elements:
             x = pos[0]
             y = pos[1]
