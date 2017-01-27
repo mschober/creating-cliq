@@ -85,25 +85,7 @@
 > And have that mean the same things in terms of functionality. What code changes would you have to make.
 
 ### Refactoring to constants
-> We'll do this in three steps. First, create local vairables in the method. Second, get the values for the local variables from class constants. Third, assign the class constants from global constants. This fix is actually pretty elegant because the size is already visible anywhere in the grid class. Drawme has access to both the x and y variables, so you can just scale the x and y in the draw function 
-.
-
-```python
-        for x in range(num_rows):
-            for y in range(num_cols):
-                grid_elements.append((x+5,y+5))
-        return grid_elements
-
-    def draw_me(self, canvas):
-        size = self.SQUARE_PIXEL_SIZE
-        for pos in self.grid_elements:
-            x = pos[0] * size
-            y = pos[1] * size
-            canvas.draw_polygon(
-                rect_coords(size, size, (x,y)),
-                1, 'Green', 'Orange'
-            )
-```
+> We'll do this in three steps. First, create local vairables in the method. Second, get the values for the local variables from class constants. Third, assign the class constants from global constants.
 
 1. Create local vairables.
     ```python
@@ -258,6 +240,25 @@
 
 ```python
                 grid_elements.append((x+5,y+5))
+```
+
+This fix is actually pretty elegant because the size is already visible anywhere in the grid class. `draw_me` has access to both the `x` and `y` variables, so you can just scale the `x` and `y` in the draw function.
+
+```python
+        for x in range(num_rows):
+            for y in range(num_cols):
+                grid_elements.append((x+5,y+5))
+        return grid_elements
+
+    def draw_me(self, canvas):
+        size = self.SQUARE_PIXEL_SIZE
+        for pos in self.grid_elements:
+            x = pos[0] * size
+            y = pos[1] * size
+            canvas.draw_polygon(
+                rect_coords(size, size, (x,y)),
+                1, 'Green', 'Orange'
+            )
 ```
 
 > You should now have a pretty base in the middle of the screen.
