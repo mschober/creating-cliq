@@ -181,6 +181,8 @@
 ### Uh-oh! What happened.
 > Look through the rest of the class...is there another magic value that can be refactored to a class constant?
 
+* Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/5373c20c9c66a83be7b37de5c79cbb69c8caa982)
+
 #### Adding a base object
 > Create the base object template.
 
