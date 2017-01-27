@@ -173,6 +173,8 @@
     ```
     - Run the code and make sure it still works!
 
+> Now for something fun! Set the new global constant to 25 instead of 50. What do you expect to happen? There were 10 squares in 500 now there will be how many?
+
 ### Might look like this: wonky base grid
 ![wonky base grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLTDZ0OW9zNHc1bnM)
 
@@ -225,6 +227,10 @@
 ![clean grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLYUplY3A4WE1Nd1E)
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/087beac8c283ec24c2f9b1fbc7ec0b91b5b5e348)
+
+> In splix.io your base starts somewhere randomly on the map. Our map is currently small, so lets just put the base in the middle of the screen for now. How would you shift the base from the top-left (0,0) to somewhere in the middle of the map? Think about this in terms of shifting by whole squares instead of pixels. 
+
+
 
 #### Adding a base object
 > Create the base object template.
