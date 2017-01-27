@@ -46,12 +46,8 @@ class SquareGrid:
             x = pos[0]
             y = pos[1]
             canvas.draw_polygon(
-                [
-                    (x, y),
-                    ((x+size), y),
-                    ((x+size), (y+size)),
-                    (x, (y+size))
-                ], 1, 'Green', 'Orange'
+                rect_coords(size, size, (x,y)),
+                1, 'Green', 'Orange'
             )
 
 class ShapeAttributes:
