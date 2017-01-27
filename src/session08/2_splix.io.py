@@ -2,6 +2,9 @@ import simplegui, time, random
 
 WINDOW_WIDTH = 500
 WINDOW_HEIGHT = 500
+GLOBAL_DEFAULT_SQUARE_SIZE = 25
+GLOBAL_NUM_ROWS = 10
+GLOBAL_NUM_COLS = 10
 
 def rect_coords (length, height, startpos = (0, 0)) :
     x = startpos[0]
@@ -14,7 +17,11 @@ def rect_coords (length, height, startpos = (0, 0)) :
     ]
 
 class SquareGrid:
-
+    
+    SQUARE_PIXEL_SIZE = GLOBAL_DEFAULT_SQUARE_SIZE
+    NUM_ROWS = GLOBAL_NUM_ROWS
+    NUM_COLS = GLOBAL_NUM_COLS
+    
     def __init__(self):
         self.grid_elements = self.init_grid(
             WINDOW_WIDTH,
@@ -22,10 +29,15 @@ class SquareGrid:
         )
 
     def init_grid(self, width, height):
+        num_rows = self.NUM_ROWS
+        num_cols = self.NUM_COLS
         grid_elements = []
-        for x in range(10):
-            for y in range(10):
-                grid_elements.append((x*50,y*50))
+        
+        size = self.SQUARE_PIXEL_SIZE
+        
+        for x in range(num_rows):
+            for y in range(num_cols):
+                grid_elements.append((x*size,y*size))
         return grid_elements
 
     def draw_me(self, canvas):
