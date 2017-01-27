@@ -80,7 +80,9 @@
 
 * Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/a6eed59a14511f28c654411bb9905fbee4ffbf9a)
 
-> Let me diverve for a moment and comment on [code smells](https://martinfowler.com/bliki/CodeSmell.html) (and examples [here](https://sourcemaking.com/refactoring)). When you see something that doesn't quite sit right in your tummy, or is commonly an issue later it usually indicates a code smell. Code smells are early warning signs that you should do some [refactoring](http://wiki.c2.com/?WhatIsRefactoring) to clean them up. 
+> Let me diverge for a moment and comment on [code smells](https://martinfowler.com/bliki/CodeSmell.html) (and examples [here](https://sourcemaking.com/refactoring)). When you see something that doesn't quite sit right in your tummy, or is commonly an issue later it usually indicates a code smell. Code smells are early warning signs that you should do some [refactoring](http://wiki.c2.com/?WhatIsRefactoring) to clean them up. We identified a code smell above with the overly complex loops for the grid. Then we refactored to a simplier solution. Another code smell are the "magic numbers". Where are we getting 10 and 50 from? These number should be moved to constatns and passed in where necessary. Lets do another refactor to move them out of the code. This way we are not confused in the future with what they mean, and they can be easily changed everywhere.
+
+
 
 #### Adding a base object
 > Create the base object template.
