@@ -86,29 +86,100 @@
 > We'll do this in three steps. First, create local vairables in the method. Second, get the values for the local variables from class constants. Third, assign the class constants from global constants.
 
 1. Create local vairables.
+    ```python
+        def init_grid(self, width, height):
+            num_rows = 10
+            num_cols = 10
+            grid_elements = []
 
-```python
-    def init_grid(self, width, height):
-        num_rows = 10
-        num_cols = 10
-        grid_elements = []
-        
-        size = 50
-        
-        for x in range(num_rows):
-            for y in range(num_cols):
-                grid_elements.append((x*size,y*size))
-        return grid_elements
-```
+            size = 50
 
+            for x in range(num_rows):
+                for y in range(num_cols):
+                    grid_elements.append((x*size,y*size))
+            return grid_elements
+    ```
+    - Run the code and make sure it still works!
 2. Local variables from class constants.
-3. Class constants from global constants.
+    ```python
+    class SquareGrid:
 
+        SQUARE_PIXEL_SIZE = 50
+        NUM_ROWS = 10
+        NUM_COLS = 10
+
+        def __init__(self):
+            self.grid_elements = self.init_grid(
+                WINDOW_WIDTH,
+                WINDOW_HEIGHT
+            )
+
+        def init_grid(self, width, height):
+            num_rows = self.NUM_ROWS
+            num_cols = self.NUM_COLS
+            grid_elements = []
+
+            size = self.SQUARE_PIXEL_SIZE
+
+            for x in range(num_rows):
+                for y in range(num_cols):
+                    grid_elements.append((x*size,y*size))
+            return grid_elements
+    ```
+    - Run the code and make sure it still works!
+3. Class constants from global constants.
+    ```python
+    import simplegui, time, random
+
+    WINDOW_WIDTH = 500
+    WINDOW_HEIGHT = 500
+    GLOBAL_DEFAULT_SQUARE_SIZE = 50
+    GLOBAL_NUM_ROWS = 10
+    GLOBAL_NUM_COLS = 10
+
+    def rect_coords (length, height, startpos = (0, 0)) :
+        x = startpos[0]
+        y = startpos[1]
+        return [
+            (x, y),
+            (x, y + height),
+            (x + length, y + height),
+            (x + length, y)  
+        ]
+
+    class SquareGrid:
+
+        SQUARE_PIXEL_SIZE = GLOBAL_DEFAULT_SQUARE_SIZE
+        NUM_ROWS = GLOBAL_NUM_ROWS
+        NUM_COLS = GLOBAL_NUM_COLS
+
+        def __init__(self):
+            self.grid_elements = self.init_grid(
+                WINDOW_WIDTH,
+                WINDOW_HEIGHT
+            )
+
+        def init_grid(self, width, height):
+            num_rows = self.NUM_ROWS
+            num_cols = self.NUM_COLS
+            grid_elements = []
+
+            size = self.SQUARE_PIXEL_SIZE
+
+            for x in range(num_rows):
+                for y in range(num_cols):
+                    grid_elements.append((x*size,y*size))
+            return grid_elements
+    ```
+    - Run the code and make sure it still works!
 
 ### Might look like this: paint the screen with squares
 ![paint the screen with squares](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLTDZ0OW9zNHc1bnM)
 
 * Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/a6eed59a14511f28c654411bb9905fbee4ffbf9a)
+
+### Uh-oh! What happened.
+> Look through the rest of the class...is there another magic value that can be refactored to a class constant?
 
 #### Adding a base object
 > Create the base object template.
