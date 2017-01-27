@@ -228,7 +228,7 @@
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/087beac8c283ec24c2f9b1fbc7ec0b91b5b5e348)
 
-> In splix.io your base starts somewhere randomly on the map. Our map is currently small, so lets just put the base in the middle of the screen for now. How would you shift the base from the top-left (0,0) to somewhere in the middle of the map? Think about this in terms of shifting by whole squares instead of pixels. 
+> In splix.io your base starts somewhere randomly on the map. Our map is currently small, so lets just put the base in the middle of the screen for now. How would you shift the base from the top-left (0,0) to somewhere in the middle of the map? Think about this in terms of shifting by whole squares instead of pixels. And remember after we shrunk the size of the squares there are now 20 squares per row. Also there are 10 squares per row in the base. 20 - 10 is 10 and you need an even amount on the left and on the right. So you should have 5 squares and then base for 10 squares and then 5 more squares. But how do you shift by an entire square? Again, multiply by the size and add the result to the initial position of the new squares being created.
 
 
 
