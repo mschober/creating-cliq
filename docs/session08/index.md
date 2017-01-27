@@ -82,7 +82,33 @@
 
 > Let me diverge for a moment and comment on [code smells](https://martinfowler.com/bliki/CodeSmell.html) (and examples [here](https://sourcemaking.com/refactoring)). When you see something that doesn't quite sit right in your tummy, or is commonly an issue later it usually indicates a code smell. Code smells are early warning signs that you should do some [refactoring](http://wiki.c2.com/?WhatIsRefactoring) to clean them up. We identified a code smell above with the overly complex loops for the grid. Then we refactored to a simplier solution. Another code smell are the "magic numbers". Where are we getting 10 and 50 from? These number should be moved to constatns and passed in where necessary. Lets do another refactor to move them out of the code. This way we are not confused in the future with what they mean, and they can be easily changed everywhere.
 
+### Refactoring to constants
+> We'll do this in three steps. First, create local vairables in the method. Second, get the values for the local variables from class constants. Third, assign the class constants from global constants.
 
+1. Create local vairables.
+
+```python
+    def init_grid(self, width, height):
+        num_rows = 10
+        num_cols = 10
+        grid_elements = []
+        
+        size = 50
+        
+        for x in range(num_rows):
+            for y in range(num_cols):
+                grid_elements.append((x*size,y*size))
+        return grid_elements
+```
+
+2. Local variables from class constants.
+3. Class constants from global constants.
+
+
+### Might look like this: paint the screen with squares
+![paint the screen with squares](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLTDZ0OW9zNHc1bnM)
+
+* Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/a6eed59a14511f28c654411bb9905fbee4ffbf9a)
 
 #### Adding a base object
 > Create the base object template.
