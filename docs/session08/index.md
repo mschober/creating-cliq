@@ -173,8 +173,8 @@
     ```
     - Run the code and make sure it still works!
 
-### Might look like this: paint the screen with squares
-![paint the screen with squares](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLTDZ0OW9zNHc1bnM)
+### Might look like this: wonky base grid
+![wonky base grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLTDZ0OW9zNHc1bnM)
 
 * Diff of the code [here](https://github.com/bellcodo/creating-cliq/commit/a6eed59a14511f28c654411bb9905fbee4ffbf9a)
 
