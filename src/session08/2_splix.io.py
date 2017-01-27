@@ -33,18 +33,16 @@ class SquareGrid:
         num_cols = self.NUM_COLS
         grid_elements = []
         
-        size = self.SQUARE_PIXEL_SIZE
-        
         for x in range(num_rows):
             for y in range(num_cols):
-                grid_elements.append((x*size,y*size))
+                grid_elements.append((x+5,y+5))
         return grid_elements
 
     def draw_me(self, canvas):
         size = self.SQUARE_PIXEL_SIZE
         for pos in self.grid_elements:
-            x = pos[0]
-            y = pos[1]
+            x = pos[0] * size
+            y = pos[1] * size
             canvas.draw_polygon(
                 rect_coords(size, size, (x,y)),
                 1, 'Green', 'Orange'
