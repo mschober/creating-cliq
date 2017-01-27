@@ -82,8 +82,28 @@
 
 > Let me diverge for a moment and comment on [code smells](https://martinfowler.com/bliki/CodeSmell.html) (and examples [here](https://sourcemaking.com/refactoring)). When you see something that doesn't quite sit right in your tummy, or is commonly an issue later it usually indicates a code smell. Code smells are early warning signs that you should do some [refactoring](http://wiki.c2.com/?WhatIsRefactoring) to clean them up. We identified a code smell above with the overly complex loops for the grid. Then we refactored to a simplier solution. Another code smell are the "magic numbers". Where are we getting 10 and 50 from? These number should be moved to constatns and passed in where necessary. Lets do another refactor to move them out of the code. This way we are not confused in the future with what they mean, and they can be easily changed everywhere.
 
+> And have that mean the same things in terms of functionality. What code changes would you have to make.
+
 ### Refactoring to constants
-> We'll do this in three steps. First, create local vairables in the method. Second, get the values for the local variables from class constants. Third, assign the class constants from global constants.
+> We'll do this in three steps. First, create local vairables in the method. Second, get the values for the local variables from class constants. Third, assign the class constants from global constants. This fix is actually pretty elegant because the size is already visible anywhere in the grid class. Drawme has access to both the x and y variables, so you can just scale the x and y in the draw function 
+.
+
+```python
+        for x in range(num_rows):
+            for y in range(num_cols):
+                grid_elements.append((x+5,y+5))
+        return grid_elements
+
+    def draw_me(self, canvas):
+        size = self.SQUARE_PIXEL_SIZE
+        for pos in self.grid_elements:
+            x = pos[0] * size
+            y = pos[1] * size
+            canvas.draw_polygon(
+                rect_coords(size, size, (x,y)),
+                1, 'Green', 'Orange'
+            )
+```
 
 1. Create local vairables.
     ```python
@@ -229,6 +249,27 @@
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/087beac8c283ec24c2f9b1fbc7ec0b91b5b5e348)
 
 > In splix.io your base starts somewhere randomly on the map. Our map is currently small, so lets just put the base in the middle of the screen for now. How would you shift the base from the top-left (0,0) to somewhere in the middle of the map? Think about this in terms of shifting by whole squares instead of pixels. And remember after we shrunk the size of the squares there are now 20 squares per row. Also there are 10 squares per row in the base. 20 - 10 is 10 and you need an even amount on the left and on the right. So you should have 5 squares and then base for 10 squares and then 5 more squares. But how do you shift by an entire square? Again, multiply by the size and add the result to the initial position of the new squares being created.
+
+```python
+                grid_elements.append((x*size+5*size,y*size+5*size))
+```
+
+> Do you smell something ugly? That repeated size variable is making it difficult to see clearly what is going on. Imagine you want the square points to be intuitive like so...
+
+```python
+                grid_elements.append((x+5,y+5))
+```
+
+> You should now have a pretty base in the middle of the screen.
+
+### Might look like this: clean grid
+![clean grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLZ0FRemJYdWVfMHM)
+
+* Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/356f112633d8907451609c662d0cd97b71ba831c)
+
+
+
+
 
 
 
