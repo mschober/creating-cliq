@@ -135,10 +135,12 @@ class Character:
         segment = self.circle_shape.center_point
         self.body.append(segment)
 
-
+    def draw_me(self, canvas):
+        pass
+    
     #draw a circle on canvas
     #(center_point, radius, line_width, line_color, fill_color = color
-    def draw_me (self, canvas):
+    def draw_me_2 (self, canvas):
 
         #=================add=======================
         #self.circle_shape.center_point[0] += Character.vel[0]
@@ -208,7 +210,7 @@ class Character:
                 #self.circle_shape.update_y(Character.move_dist)
                 Character.vel = [0, Character.move_dist]
 
-#snake = Character()            
+snake = Character()            
 grid = SquareGrid()                
 
 
@@ -228,7 +230,7 @@ def draw(canvas):
     if ticker == 3:
         #snake.save_me()    
         ticker = 0
-    #snake.draw_me(canvas)    # draw circle
+    snake.draw_me(canvas)    # draw circle
     grid.draw_me(canvas)    # draw grid
 
 
