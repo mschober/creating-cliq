@@ -3,6 +3,9 @@ import simplegui, time, random
 WINDOW_WIDTH = 500
 WINDOW_HEIGHT = 500
 GLOBAL_DEFAULT_SQUARE_SIZE = 25
+IN_SQUARES = GLOBAL_DEFAULT_SQUARE_SIZE
+BASE_SHIFT_X = 5
+BASE_SHIFT_Y = 5
 GLOBAL_NUM_ROWS = 10
 GLOBAL_NUM_COLS = 10
 
@@ -35,7 +38,7 @@ class SquareGrid:
         
         for x in range(num_rows):
             for y in range(num_cols):
-                grid_elements.append((x+5,y+5))
+                grid_elements.append((x+BASE_SHIFT_X,y+BASE_SHIFT_Y))
         return grid_elements
 
     def draw_me(self, canvas):
@@ -58,12 +61,16 @@ class ShapeAttributes:
 
 
 class Circle:
+    
+    START_POINT_X = BASE_SHIFT_X*IN_SQUARES
+    START_POINT_Y = BASE_SHIFT_Y*IN_SQUARES
+    
     def __init__ (self):
+        x = self.START_POINT_X
+        y = self.START_POINT_Y
+        
         self.radius = 3
-        self.center_point = (
-            5*GLOBAL_DEFAULT_SQUARE_SIZE,
-            5*GLOBAL_DEFAULT_SQUARE_SIZE
-        )
+        self.center_point = (x,y)
 
     '''
     def update_x (self, shift_x):
