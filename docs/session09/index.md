@@ -23,3 +23,28 @@ A refresher on the state from last week
 ```
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/541c2e748126912b1a1f8039a7b91c27caa4516a)
+
+> We need to do a little cleanup here. If you look through the code you'll see several copies of this block.
+
+```python
+            canvas.draw_circle(
+                segment,
+                self.circle_shape.radius /2,
+                self.shape_attributes.line_width,
+                self.shape_attributes.fill_color,
+                self.shape_attributes.fill_color    
+            )
+```
+
+> Refactor this into a new method on `snake` and reuse it in all its current places in the `draw_me_2` function. Note that you'll need to pass in a few parameters to make this work. Can you figure out what the parameters are? Here is what I came up with.
+
+```python
+    def draw_circle(self, canvas, center):
+        canvas.draw_circle(
+                center,
+                self.circle_shape.radius /2,
+                self.shape_attributes.line_width,
+                self.shape_attributes.fill_color,
+                self.shape_attributes.fill_color    
+            )
+```
