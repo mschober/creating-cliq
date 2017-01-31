@@ -57,6 +57,6 @@ A refresher on the state from last week
 ```
 
 ### Might look like this: tiny dot
-![tiny dot](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLZ0FRemJYdWVfMHM)
+![tiny dot](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLZWdTTWMzRmNpa1U)
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/6e9f771de6acb341129c47d2daccd0a759ab3d42)
