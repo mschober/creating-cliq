@@ -136,10 +136,17 @@ class Character:
         self.body.append(segment)
 
     def draw_me(self, canvas):
-        pass
+        self.draw_circle(canvas, self.circle_shape.center_point)
     
-    #draw a circle on canvas
-    #(center_point, radius, line_width, line_color, fill_color = color
+    def draw_circle(self, canvas, center):
+        canvas.draw_circle(
+                center,
+                self.circle_shape.radius /2,
+                self.shape_attributes.line_width,
+                self.shape_attributes.fill_color,
+                self.shape_attributes.fill_color    
+            )
+
     def draw_me_2 (self, canvas):
 
         #=================add=======================
@@ -164,23 +171,10 @@ class Character:
 
         #self.circle_shape.center_point[1] += vel[1]
 
-        canvas.draw_circle (
-            self.circle_shape.center_point,
-            self.circle_shape.radius,
-            self.shape_attributes.line_width,
-            self.shape_attributes.line_color,
-            self.shape_attributes.fill_color
-        )
+        self.draw_circle(canvas, self.circle_shape.center_point)
 
         for segment in self.body.list_segments():
-            canvas.draw_circle(
-                segment,
-                self.circle_shape.radius /2,
-                self.shape_attributes.line_width,
-                self.shape_attributes.fill_color,
-                self.shape_attributes.fill_color    
-            )
-
+            self.draw_circle(canvas, segment)
     # get input key press and move the circle
     def move (self, key):
 
