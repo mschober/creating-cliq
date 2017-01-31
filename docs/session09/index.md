@@ -48,3 +48,5 @@ A refresher on the state from last week
                 self.shape_attributes.fill_color    
             )
 ```
+
+* Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/6e9f771de6acb341129c47d2daccd0a759ab3d42)
