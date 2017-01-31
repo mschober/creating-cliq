@@ -49,4 +49,14 @@ A refresher on the state from last week
             )
 ```
 
+> Now that the circle method is exposed in the class lets call it in the `draw_me` method.
+
+```python
+    def draw_me(self, canvas):
+        self.draw_circle(canvas, self.circle_shape.center_point)
+```
+
+### Might look like this: tiny dot
+![tiny dot](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLZ0FRemJYdWVfMHM)
+
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/6e9f771de6acb341129c47d2daccd0a759ab3d42)
