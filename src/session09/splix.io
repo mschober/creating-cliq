@@ -60,7 +60,10 @@ class ShapeAttributes:
 class Circle:
     def __init__ (self):
         self.radius = 3
-        self.center_point = (100, 100)
+        self.center_point = (
+            5*GLOBAL_DEFAULT_SQUARE_SIZE,
+            5*GLOBAL_DEFAULT_SQUARE_SIZE
+        )
 
     '''
     def update_x (self, shift_x):
@@ -224,8 +227,8 @@ def draw(canvas):
     if ticker == 3:
         #snake.save_me()    
         ticker = 0
-    snake.draw_me(canvas)    # draw circle
     grid.draw_me(canvas)    # draw grid
+    snake.draw_me(canvas)    # draw circle
 
 
     return
