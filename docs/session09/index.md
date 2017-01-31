@@ -87,7 +87,8 @@ BASE_SHIFT_Y = 5
 
 > And finally updating the circle class.
 
-```pythonclass Circle:
+```python
+class Circle:
     
     START_POINT_X = BASE_SHIFT_X*IN_SQUARES
     START_POINT_Y = BASE_SHIFT_Y*IN_SQUARES
