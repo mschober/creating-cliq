@@ -68,3 +68,34 @@ A refresher on the state from last week
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/5da02a41a598d84b520ba706c501240f86d27bdf)
 
+> There are `5`s floating around all about now, so lets create some constants to keep track of what the `5`s are for.
+
+```python
+IN_SQUARES = GLOBAL_DEFAULT_SQUARE_SIZE
+BASE_SHIFT_X = 5
+BASE_SHIFT_Y = 5
+```
+
+> Need to update the base drawing function.
+
+```python
+        for x in range(num_rows):
+            for y in range(num_cols):
+                grid_elements.append((x+BASE_SHIFT_X,y+BASE_SHIFT_Y))
+        return grid_elements
+```
+
+> And finally updating the circle class.
+
+```pythonclass Circle:
+    
+    START_POINT_X = BASE_SHIFT_X*IN_SQUARES
+    START_POINT_Y = BASE_SHIFT_Y*IN_SQUARES
+    
+    def __init__ (self):
+        x = self.START_POINT_X
+        y = self.START_POINT_Y
+        
+        self.radius = 3
+        self.center_point = (x,y)
+```
