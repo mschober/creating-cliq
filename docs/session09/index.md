@@ -60,3 +60,11 @@ A refresher on the state from last week
 ![tiny dot](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLZWdTTWMzRmNpa1U)
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/6e9f771de6acb341129c47d2daccd0a759ab3d42)
+
+> To shift the dot over to the base, move it by square sizes to the beginning of the base. This is done by changing the circle center point by `(5*SIZE_OF_SQUARE,5*SIZE_OF_SQAURE)`.
+
+### Might look like this: snake in cage
+![snake in cage](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLaUpDemZ3TWswNUE)
+
+* Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/5da02a41a598d84b520ba706c501240f86d27bdf)
+
