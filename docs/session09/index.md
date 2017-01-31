@@ -100,3 +100,5 @@ class Circle:
         self.radius = 3
         self.center_point = (x,y)
 ```
+
+* Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/127e0d7006688a67df01256e8c3cfeda90f94536)
