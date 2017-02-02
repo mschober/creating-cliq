@@ -103,10 +103,13 @@ class Circle:
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/127e0d7006688a67df01256e8c3cfeda90f94536)
 
-> The radius of the circle should be half the size of the square. Creating new constant and updating the code yeilds.
+> The snake head should be the same size as the squares and snapped to the same grid. To begin lets refactor the radius constant into a class constant and global constant.
 
-```python
+* New global constant
+     - `GLOBAL_CIRCLE_RADIUS = 3`
+* New class constant
+     - `    RADIUS = GLOBAL_CIRCLE_RADIUS`
+* Updated radius in `Circle` class
+     - `        self.radius = self.RADIUS`
 
-<snip>
-        self.radius = 3
-
+* Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/fc12c88bfbb473de5c6557ff7d97ccc20d95f6b2)
