@@ -102,3 +102,11 @@ class Circle:
 ```
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/127e0d7006688a67df01256e8c3cfeda90f94536)
+
+> The radius of the circle should be half the size of the square. Creating new constant and updating the code yeilds.
+
+```python
+
+<snip>
+        self.radius = 3
+
