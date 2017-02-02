@@ -63,8 +63,8 @@ class ShapeAttributes:
 
 class Circle:
     
-    START_POINT_X = BASE_SHIFT_X*IN_SQUARES
-    START_POINT_Y = BASE_SHIFT_Y*IN_SQUARES
+    START_POINT_X = IN_SQUARES*(BASE_SHIFT_X + .5)
+    START_POINT_Y = IN_SQUARES*(BASE_SHIFT_Y + .5)
     RADIUS = GLOBAL_CIRCLE_RADIUS
     
     def __init__ (self):
