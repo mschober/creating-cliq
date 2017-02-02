@@ -113,3 +113,4 @@ class Circle:
      - `        self.radius = self.RADIUS`
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/fc12c88bfbb473de5c6557ff7d97ccc20d95f6b2)
+> Uh-oh look closely at the above diff. There is an important additional change that was meant to come in the next change. The last change removes the divide by `2` in the radius. Back when we were drawing `cliq` the body was decided to be half the size of the head. That divide by `2` was legacy from refactoring the draw method. We'll need to divide by `2` for the head to match the squares though because radius should be 1/2 the diameter.
