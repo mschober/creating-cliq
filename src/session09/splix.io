@@ -6,6 +6,7 @@ GLOBAL_DEFAULT_SQUARE_SIZE = 25
 IN_SQUARES = GLOBAL_DEFAULT_SQUARE_SIZE
 BASE_SHIFT_X = 5
 BASE_SHIFT_Y = 5
+GLOBAL_CIRCLE_RADIUS = 3
 GLOBAL_NUM_ROWS = 10
 GLOBAL_NUM_COLS = 10
 
@@ -64,12 +65,13 @@ class Circle:
     
     START_POINT_X = BASE_SHIFT_X*IN_SQUARES
     START_POINT_Y = BASE_SHIFT_Y*IN_SQUARES
+    RADIUS = GLOBAL_CIRCLE_RADIUS
     
     def __init__ (self):
         x = self.START_POINT_X
         y = self.START_POINT_Y
         
-        self.radius = 3
+        self.radius = self.RADIUS
         self.center_point = (x,y)
 
     '''
@@ -151,7 +153,7 @@ class Character:
     def draw_circle(self, canvas, center):
         canvas.draw_circle(
                 center,
-                self.circle_shape.radius /2,
+                self.circle_shape.radius,
                 self.shape_attributes.line_width,
                 self.shape_attributes.fill_color,
                 self.shape_attributes.fill_color    
