@@ -116,4 +116,31 @@ class Circle:
 > Uh-oh look closely at the above diff. There is an important additional change that was meant to come in the next change. The last edit removes the divide by `2` in the radius. Back when we were drawing `cliq` the body was decided to be half the size of the head. That divide by `2` was legacy from refactoring the draw method. We'll need to divide by `2` for the head to match the squares though because radius should be 1/2 the diameter. Lets do the division when creating the global constant instead of in the draw method.
 
 * `GLOBAL_CIRCLE_RADIUS = GLOBAL_DEFAULT_SQUARE_SIZE / 2`
+
+### Might look like this: big dot
+![big dot](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLNHBBZFBKNHJpams)
+
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/e6fbbf0a63978e291782f3709daed90d14dc8f17)
+
+> To move the snake head into the grid its `center_point` needs to move half the width and half the height of the square.
+
+```python
+class Circle:
+    
+    START_POINT_X = BASE_SHIFT_X*IN_SQUARES + IN_SQUARES/2
+    START_POINT_Y = BASE_SHIFT_Y*IN_SQUARES + IN_SQUARES/2
+```
+
+> And by refactoring we get
+
+```python
+class Circle:
+    
+    START_POINT_X = IN_SQUARES*(BASE_SHIFT_X + .5)
+    START_POINT_Y = IN_SQUARES*(BASE_SHIFT_Y + .5)
+```
+
+### Might look like this: snake in grid
+![snake in grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLQ1ZCcTZqcl9BWEE)
+
+Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/15a7c9b5db61006537fe402fa976d87ccd7363a0)
