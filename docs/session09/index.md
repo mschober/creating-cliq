@@ -144,3 +144,17 @@ class Circle:
 ![snake in grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLQ1ZCcTZqcl9BWEE)
 
 Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/15a7c9b5db61006537fe402fa976d87ccd7363a0)
+
+> With diligent refactoring and use of constants shifting the snake over to a nice starting position becomes super easy. Just add 4 sqaures to the initial `x` position of the head.
+
+```python
+    def __init__ (self):
+        x = self.START_POINT_X + 4*IN_SQUARES
+        y = self.START_POINT_Y
+```
+
+### Might look like this: snake in grid
+![snake in grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLUmZDM3dMb1pOTmM)
+
+Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/33a844cf8a561b8ab1df4b612d32870c1e4bf75b)
+
