@@ -68,7 +68,7 @@ class Circle:
     RADIUS = GLOBAL_CIRCLE_RADIUS
     
     def __init__ (self):
-        x = self.START_POINT_X
+        x = self.START_POINT_X + 4*IN_SQUARES
         y = self.START_POINT_Y
         
         self.radius = self.RADIUS
