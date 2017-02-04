@@ -158,3 +158,32 @@ Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/15a7c9b5db6
 
 Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/33a844cf8a561b8ab1df4b612d32870c1e4bf75b)
 
+> What happens if you try and increase the number of starting squares in the base? Lets double it and see. Change the constants to always be square and doulbed to `20`. Then run it and see what happens.
+
+```python
+GLOBAL_NUM_ROWS = 20
+GLOBAL_NUM_COLS = GLOBAL_NUM_ROWS
+```
+
+### Might look like this: scaling didnt work
+![scaling didnt work](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLM1BoWlBYTnNCS00)
+
+> The snake head is in the wrong column now, and the base is shifted to the far lower corner. The snake start position is easy to fix so lets handle that first. 
+* Find the middle of the base with division.
+* Convert it to squares.
+
+```python
+class Circle:
+    
+    START_POINT_X = IN_SQUARES*(BASE_SHIFT_X + .5)
+    START_POINT_Y = IN_SQUARES*(BASE_SHIFT_Y + .5)
+    RADIUS = GLOBAL_CIRCLE_RADIUS
+    
+    def __init__ (self):
+        start_in_middle_of_base = (GLOBAL_NUM_COLS / 2) - 1
+        x = self.START_POINT_X + start_in_middle_of_base*IN_SQUARES
+        y = self.START_POINT_Y
+```
+
+### Might look like this: fixed snake starting position
+![fixed snake starting position](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLSnhjb3dtUk9PNXc)
