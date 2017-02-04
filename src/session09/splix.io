@@ -4,11 +4,22 @@ WINDOW_WIDTH = 500
 WINDOW_HEIGHT = 500
 GLOBAL_DEFAULT_SQUARE_SIZE = 25
 IN_SQUARES = GLOBAL_DEFAULT_SQUARE_SIZE
-BASE_SHIFT_X = 5
-BASE_SHIFT_Y = 5
 GLOBAL_CIRCLE_RADIUS = GLOBAL_DEFAULT_SQUARE_SIZE / 2
+
 GLOBAL_NUM_ROWS = 10
-GLOBAL_NUM_COLS = 10
+GLOBAL_NUM_COLS = GLOBAL_NUM_ROWS
+
+# Convert the window width into squares
+GLOBAL_SQUARES_ACROSS = WINDOW_WIDTH / GLOBAL_DEFAULT_SQUARE_SIZE
+
+# The width with the base in it
+# The width with the base subtracted
+# The width divided by 2
+# [...-----...]
+# [......]
+# [...]
+BASE_SHIFT_X = (GLOBAL_SQUARES_ACROSS - GLOBAL_NUM_ROWS) / 2
+BASE_SHIFT_Y = BASE_SHIFT_X
 
 def rect_coords (length, height, startpos = (0, 0)) :
     x = startpos[0]
@@ -68,7 +79,8 @@ class Circle:
     RADIUS = GLOBAL_CIRCLE_RADIUS
     
     def __init__ (self):
-        x = self.START_POINT_X + 4*IN_SQUARES
+        start_in_middle_of_base = (GLOBAL_NUM_COLS / 2) - 1
+        x = self.START_POINT_X + start_in_middle_of_base*IN_SQUARES
         y = self.START_POINT_Y
         
         self.radius = self.RADIUS
