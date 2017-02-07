@@ -212,6 +212,8 @@ GLOBAL_SQUARES_ACROSS = WINDOW_WIDTH / GLOBAL_DEFAULT_SQUARE_SIZE
 ### Might look like this: shifting the base
 ![shifting the base](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLaWpWS09TZUliMk0)
 
+* Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/ea30b830a1a53f4df96d7e6edb19f2a9b8313ccd)
+
 > After removing the middle of the base there are two pieces left over. You only want to shift the width of one of the pieces. Mathmatically this would be
 
 ```
@@ -225,4 +227,4 @@ BASE_SHIFT_X = (GLOBAL_SQUARES_ACROSS - GLOBAL_NUM_ROWS) /2
 BASE_SHIFT_Y = BASE_SHIFT_X
 ```
 
-> We get the `y` direction for free because of choosing a square for the starting base.
+> We get the `y` direction for free because of choosing a square for the starting base. Try changing the window size and base size. The new constants should keep everything working.
