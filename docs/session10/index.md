@@ -2,7 +2,10 @@
 > Moving the snake into the open world. Take moment to refresh your memory on the state of things in session09.
 Constants can be used to resize the screen and the starting base.
 
+### Might look like this: clean grid
+![clean grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLbTM4LXBVVXpPcjA)
 
+> If we want to capture new squares the snake needs to move on the grid and keep track of leaving the base, colliding with itself, re-entring the base. But before we worry about collisions lets dust off our memory of how the movement is currently implemented. Velocities were used to constantly move in whichever the most recent direction was. Lets comment the body of each of the directional if statements and create stub functions for each direction.
 
 ```python
     def move (self, key):
