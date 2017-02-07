@@ -37,3 +37,64 @@ Constants can be used to resize the screen and the starting base.
                 Character.vel = [0, Character.move_dist]
 
 ```
+
+> New stubs
+
+```python
+    def move_right(self):
+        pass
+    
+    def move_left(self):
+		pass
+    
+    def move_up(self):
+        pass
+    
+    def move_down(self):
+        pass
+```
+
+> Refactoring the bodies into the stubs and commenting the velocites.
+
+```python
+    def move_right(self):
+        print "move right"
+
+        #self.circle_shape.update_x(Character.move_dist)
+        #Character.vel = [Character.move_dist, 0]
+
+    def move_left(self):
+        print "move left"
+
+        #self.circle_shape.update_x(-Character.move_dist)    
+        #Character.vel = [-Character.move_dist, 0]
+
+    def move_up(self):
+        print "move up"
+
+        #self.circle_shape.update_y(-Character.move_dist)
+        #Character.vel = [0, -Character.move_dist]
+    
+    def move_down(self):
+        print "move down"
+
+        #self.circle_shape.update_y(Character.move_dist)
+        #Character.vel = [0, Character.move_dist]
+    
+    def move (self, key):
+
+        #check if key is in key_map array. 
+        #Character: this class name
+        if key in Character.key_map.values():
+            if key == Character.key_map["right"]:
+                move_right()
+                
+            if key == Character.key_map["left"]:
+                move_left()
+                
+            if key == Character.key_map["up"]:
+                move_up()
+                
+            if key == Character.key_map["down"]:
+                move_down()
+```
