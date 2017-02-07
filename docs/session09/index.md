@@ -206,3 +206,23 @@ GLOBAL_NUM_COLS = GLOBAL_NUM_ROWS
 ```python
 GLOBAL_SQUARES_ACROSS = WINDOW_WIDTH / GLOBAL_DEFAULT_SQUARE_SIZE
 ```
+
+> To shift the base the proper distance in the `x` direction image cutting the base base columns out of the middle of the screen.
+
+### Might look like this: shifting the base
+![shifting the base](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLaWpWS09TZUliMk0)
+
+> After removing the middle of the base there are two pieces left over. You only want to shift the width of one of the pieces. Mathmatically this would be
+
+```
+(1/2) * (WINDOW_WIDTH_IN_SQUARES - BASE_WIDTH_IN_SQUARES)
+```
+
+> And in python we can create a constant for this as
+
+```python
+BASE_SHIFT_X = (GLOBAL_SQUARES_ACROSS - GLOBAL_NUM_ROWS) /2
+BASE_SHIFT_Y = BASE_SHIFT_X
+```
+
+> We get the `y` direction for free because of choosing a square for the starting base.
