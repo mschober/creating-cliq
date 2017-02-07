@@ -187,3 +187,22 @@ class Circle:
 
 ### Might look like this: fixed snake starting position
 ![fixed snake starting position](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLSnhjb3dtUk9PNXc)
+
+> Since everything is going to be square it helps to just have the height always match the width.
+```python
+WINDOW_WIDTH = 500
+WINDOW_HEIGHT = WINDOW_WIDTH
+GLOBAL_DEFAULT_SQUARE_SIZE = 25
+IN_SQUARES = GLOBAL_DEFAULT_SQUARE_SIZE
+BASE_SHIFT_X = 5
+BASE_SHIFT_Y = BASE_SHIFT_X
+GLOBAL_CIRCLE_RADIUS = GLOBAL_DEFAULT_SQUARE_SIZE / 2
+GLOBAL_NUM_ROWS = 20
+GLOBAL_NUM_COLS = GLOBAL_NUM_ROWS
+```
+
+> The next part is difficult. We need to think for a minute about how to define the `x` & `y` shift in terms of the window width and base width. Create a new global constant that is the number of squares across.
+
+```python
+GLOBAL_SQUARES_ACROSS = WINDOW_WIDTH / GLOBAL_DEFAULT_SQUARE_SIZE
+```
