@@ -39,7 +39,7 @@ Constants can be used to resize the screen and the starting base.
 
 ```
 
-## New stubs
+> New stubs
 
 ```python
     def move_right(self):
@@ -55,7 +55,7 @@ Constants can be used to resize the screen and the starting base.
         pass
 ```
 
-## Refactoring the bodies into the stubs and commenting the velocites.
+> Refactoring the bodies into the stubs and commenting the velocites.
 
 ```python
     def move_right(self):
@@ -99,3 +99,7 @@ Constants can be used to resize the screen and the starting base.
             if key == Character.key_map["down"]:
                 move_down()
 ```
+> The move functions are in the class so they'll need `self.` added. (I missed that!). We also need to reenable the keyhandler down below.
+
+
+* Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/a79a4b4b51b99102cd5fc12842fabaf615340b6f)
