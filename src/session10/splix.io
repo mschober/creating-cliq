@@ -191,33 +191,47 @@ class Character:
         for segment in self.body.list_segments():
             self.draw_circle(canvas, segment)
     # get input key press and move the circle
+    
+    def move_right(self):
+        print "move right"
+
+        #self.circle_shape.update_x(Character.move_dist)
+        #Character.vel = [Character.move_dist, 0]
+
+    def move_left(self):
+        print "move left"
+
+        #self.circle_shape.update_x(-Character.move_dist)    
+        #Character.vel = [-Character.move_dist, 0]
+
+    def move_up(self):
+        print "move up"
+
+        #self.circle_shape.update_y(-Character.move_dist)
+        #Character.vel = [0, -Character.move_dist]
+    
+    def move_down(self):
+        print "move down"
+
+        #self.circle_shape.update_y(Character.move_dist)
+        #Character.vel = [0, Character.move_dist]
+    
     def move (self, key):
 
         #check if key is in key_map array. 
         #Character: this class name
         if key in Character.key_map.values():
             if key == Character.key_map["right"]:
-                print "move right"
-
-                #self.circle_shape.update_x(Character.move_dist)
-                Character.vel = [Character.move_dist, 0]
-
+                self.move_right()
+                
             if key == Character.key_map["left"]:
-                print "move left"
-
-                #self.circle_shape.update_x(-Character.move_dist)    
-                Character.vel = [-Character.move_dist, 0]
-
+                self.move_left()
+                
             if key == Character.key_map["up"]:
-                print "move up"
-
-                #self.circle_shape.update_y(-Character.move_dist)
-                Character.vel = [0, -Character.move_dist]
-        if key == Character.key_map["down"]:
-                print "move down"
-
-                #self.circle_shape.update_y(Character.move_dist)
-                Character.vel = [0, Character.move_dist]
+                self.move_up()
+                
+            if key == Character.key_map["down"]:
+                self.move_down()
 
 snake = Character()            
 grid = SquareGrid()                
@@ -252,6 +266,6 @@ frame = simplegui.create_frame("Home", WINDOW_WIDTH, WINDOW_HEIGHT)
 frame.set_canvas_background("Silver")
 
 frame.set_draw_handler(draw)
-#frame.set_keydown_handler(snake.move) #for move circle******
+frame.set_keydown_handler(snake.move) #for move circle******
 
 frame.start()
