@@ -2,6 +2,8 @@
 > Moving the snake into the open world. Take a moment to refresh your memory on the state of things in session09.
 Constants can be used to resize the screen and the starting base.
 
+Code from [Session09](https://raw.githubusercontent.com/bellcodo/creating-cliq/master/src/session09/splix.io)
+
 ### Might look like this: clean grid
 ![clean grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLbTM4LXBVVXpPcjA)
 
