@@ -7,100 +7,105 @@ Code from [Session09](https://raw.githubusercontent.com/bellcodo/creating-cliq/m
 ### Might look like this: clean grid
 ![clean grid](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLbTM4LXBVVXpPcjA)
 
-> If we want to capture new squares the snake needs to move on the grid and keep track of leaving the base, colliding with itself, re-entring the base. But before we worry about collisions lets dust off our memory of how the movement is currently implemented. Velocities were used to constantly move in whichever the most recent direction was. Lets comment the body of each of the directional if statements and create stub functions for each direction.
+> If we want to capture new squares the snake needs to move on the grid and keep track of: leaving the base, colliding with itself, and re-entring the base. But before we worry about collisions lets dust off our memory of how the movement is currently implemented. Velocities were used to constantly move in whichever the most recent direction was. 
 
-## Code snippet before changing
-```python
-    def move (self, key):
+1. Find the movement code that is currently turned off. The method signature is `def move(self, key):`.
+2. Comment the body of each of the directional statements.
 
-        #check if key is in key_map array. 
-        #Character: this class name
-        if key in Character.key_map.values():
-            if key == Character.key_map["right"]:
-                print "move right"
+	## Code snippet before changing
+	```python
+	    def move (self, key):
 
-                #self.circle_shape.update_x(Character.move_dist)
-                Character.vel = [Character.move_dist, 0]
+		#check if key is in key_map array. 
+		#Character: this class name
+		if key in Character.key_map.values():
+		    if key == Character.key_map["right"]:
+			print "move right"
 
-            if key == Character.key_map["left"]:
-                print "move left"
+			#self.circle_shape.update_x(Character.move_dist)
+			Character.vel = [Character.move_dist, 0]
 
-                #self.circle_shape.update_x(-Character.move_dist)    
-                Character.vel = [-Character.move_dist, 0]
+		    if key == Character.key_map["left"]:
+			print "move left"
 
-            if key == Character.key_map["up"]:
-                print "move up"
+			#self.circle_shape.update_x(-Character.move_dist)    
+			Character.vel = [-Character.move_dist, 0]
 
-                #self.circle_shape.update_y(-Character.move_dist)
-                Character.vel = [0, -Character.move_dist]
-        if key == Character.key_map["down"]:
-                print "move down"
+		    if key == Character.key_map["up"]:
+			print "move up"
 
-                #self.circle_shape.update_y(Character.move_dist)
-                Character.vel = [0, Character.move_dist]
+			#self.circle_shape.update_y(-Character.move_dist)
+			Character.vel = [0, -Character.move_dist]
+		if key == Character.key_map["down"]:
+			print "move down"
 
-```
+			#self.circle_shape.update_y(Character.move_dist)
+			Character.vel = [0, Character.move_dist]
 
-> New stubs
+	```
+3. Create stub functions for each direction.
 
-```python
-    def move_right(self):
-        pass
-    
-    def move_left(self):
+	> New stubs
+
+	```python
+	    def move_right(self):
 		pass
-    
-    def move_up(self):
-        pass
-    
-    def move_down(self):
-        pass
-```
 
-> Refactoring the bodies into the stubs and commenting the velocites.
+	    def move_left(self):
+			pass
 
-```python
-    def move_right(self):
-        print "move right"
+	    def move_up(self):
+		pass
 
-        #self.circle_shape.update_x(Character.move_dist)
-        #Character.vel = [Character.move_dist, 0]
+	    def move_down(self):
+		pass
+	```
+4. Move the commented functionality from the move function into the stubs.
+	
+	> Refactoring the bodies into the stubs and commenting the velocites.
 
-    def move_left(self):
-        print "move left"
+	```python
+	    def move_right(self):
+		print "move right"
 
-        #self.circle_shape.update_x(-Character.move_dist)    
-        #Character.vel = [-Character.move_dist, 0]
+		#self.circle_shape.update_x(Character.move_dist)
+		#Character.vel = [Character.move_dist, 0]
 
-    def move_up(self):
-        print "move up"
+	    def move_left(self):
+		print "move left"
 
-        #self.circle_shape.update_y(-Character.move_dist)
-        #Character.vel = [0, -Character.move_dist]
-    
-    def move_down(self):
-        print "move down"
+		#self.circle_shape.update_x(-Character.move_dist)    
+		#Character.vel = [-Character.move_dist, 0]
 
-        #self.circle_shape.update_y(Character.move_dist)
-        #Character.vel = [0, Character.move_dist]
-    
-    def move (self, key):
+	    def move_up(self):
+		print "move up"
 
-        #check if key is in key_map array. 
-        #Character: this class name
-        if key in Character.key_map.values():
-            if key == Character.key_map["right"]:
-                move_right()
-                
-            if key == Character.key_map["left"]:
-                move_left()
-                
-            if key == Character.key_map["up"]:
-                move_up()
-                
-            if key == Character.key_map["down"]:
-                move_down()
-```
+		#self.circle_shape.update_y(-Character.move_dist)
+		#Character.vel = [0, -Character.move_dist]
+
+	    def move_down(self):
+		print "move down"
+
+		#self.circle_shape.update_y(Character.move_dist)
+		#Character.vel = [0, Character.move_dist]
+
+	    def move (self, key):
+
+		#check if key is in key_map array. 
+		#Character: this class name
+		if key in Character.key_map.values():
+		    if key == Character.key_map["right"]:
+			move_right()
+
+		    if key == Character.key_map["left"]:
+			move_left()
+
+		    if key == Character.key_map["up"]:
+			move_up()
+
+		    if key == Character.key_map["down"]:
+			move_down()
+	```
 > The move functions are in the class so they'll need `self.` added. (I missed that!). We also need to reenable the keyhandler down below.
 
 
