@@ -36,11 +36,11 @@ Code from [Session09](https://raw.githubusercontent.com/bellcodo/creating-cliq/m
 
 				#self.circle_shape.update_y(-Character.move_dist)
 				Character.vel = [0, -Character.move_dist]
-		if key == Character.key_map["down"]:
-			print "move down"
+			if key == Character.key_map["down"]:
+				print "move down"
 
-			#self.circle_shape.update_y(Character.move_dist)
-			Character.vel = [0, Character.move_dist]
+				#self.circle_shape.update_y(Character.move_dist)
+				Character.vel = [0, Character.move_dist]
 
 	```
 3. Create stub functions for each direction.
