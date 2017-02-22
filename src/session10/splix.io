@@ -102,6 +102,21 @@ class Body:
     def list_segments(self):
         return list(self.body_segments)
 
+class Square:
+    
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def draw_me(self):
+        size = self.SQUARE_PIXEL_SIZE
+        x = pos[0] * size
+        y = pos[1] * size
+        canvas.draw_polygon(
+            rect_coords(size, size, (x,y)),
+            1, 'Green', 'Orange'
+        )
+    
 class Character:
     key_map = {
         "left": 37,
@@ -192,27 +207,38 @@ class Character:
             self.draw_circle(canvas, segment)
     # get input key press and move the circle
     
+    def update_direction(self, new_point):
+        curr_center = self.circle_shape.center_point
+        shift_point = map(lambda shift: shift*IN_SQUARES, new_point)
+        next_center = reduce(lambda x,y: (y[0] + x[0],y[1] + x[1]), [shift_point,curr_center])
+        self.circle_shape.center_point = next_center
+        self.body.append(Square(
+                next_center[0],
+                next_center[1]                
+            ))
+        print self.body.body_segments
+    
     def move_right(self):
         print "move right"
-
+        self.update_direction((1, 0))
         #self.circle_shape.update_x(Character.move_dist)
         #Character.vel = [Character.move_dist, 0]
 
     def move_left(self):
         print "move left"
-
+        self.update_direction((-1, 0))
         #self.circle_shape.update_x(-Character.move_dist)    
         #Character.vel = [-Character.move_dist, 0]
 
     def move_up(self):
         print "move up"
-
+        self.update_direction((0, -1))
         #self.circle_shape.update_y(-Character.move_dist)
         #Character.vel = [0, -Character.move_dist]
     
     def move_down(self):
         print "move down"
-
+        self.update_direction((0, 1))
         #self.circle_shape.update_y(Character.move_dist)
         #Character.vel = [0, Character.move_dist]
     
