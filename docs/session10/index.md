@@ -108,5 +108,8 @@ Code from [Session09](https://raw.githubusercontent.com/bellcodo/creating-cliq/m
 	```
 > The move functions are in the class so they'll need `self.` added. (I missed that!). We also need to reenable the keyhandler down below.
 
+```python
+frame.set_keydown_handler(snake.move) #for move circle******
+```
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/a79a4b4b51b99102cd5fc12842fabaf615340b6f)
