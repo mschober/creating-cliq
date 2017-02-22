@@ -65,46 +65,46 @@ Code from [Session09](https://raw.githubusercontent.com/bellcodo/creating-cliq/m
 	> Refactoring the bodies into the stubs and commenting the velocites.
 
 	```python
-	    def move_right(self):
-		print "move right"
+    def move_right(self):
+	print "move right"
 
-		#self.circle_shape.update_x(Character.move_dist)
-		#Character.vel = [Character.move_dist, 0]
+	#self.circle_shape.update_x(Character.move_dist)
+	#Character.vel = [Character.move_dist, 0]
 
-	    def move_left(self):
-		print "move left"
+    def move_left(self):
+	print "move left"
 
-		#self.circle_shape.update_x(-Character.move_dist)    
-		#Character.vel = [-Character.move_dist, 0]
+	#self.circle_shape.update_x(-Character.move_dist)    
+	#Character.vel = [-Character.move_dist, 0]
 
-	    def move_up(self):
-		print "move up"
+    def move_up(self):
+	print "move up"
 
-		#self.circle_shape.update_y(-Character.move_dist)
-		#Character.vel = [0, -Character.move_dist]
+	#self.circle_shape.update_y(-Character.move_dist)
+	#Character.vel = [0, -Character.move_dist]
 
-	    def move_down(self):
-		print "move down"
+    def move_down(self):
+	print "move down"
 
-		#self.circle_shape.update_y(Character.move_dist)
-		#Character.vel = [0, Character.move_dist]
+	#self.circle_shape.update_y(Character.move_dist)
+	#Character.vel = [0, Character.move_dist]
 
-	    def move (self, key):
+    def move (self, key):
 
-		#check if key is in key_map array. 
-		#Character: this class name
-		if key in Character.key_map.values():
-		    if key == Character.key_map["right"]:
-			move_right()
+	#check if key is in key_map array. 
+	#Character: this class name
+	if key in Character.key_map.values():
+	    if key == Character.key_map["right"]:
+		move_right()
 
-		    if key == Character.key_map["left"]:
-			move_left()
+	    if key == Character.key_map["left"]:
+		move_left()
 
-		    if key == Character.key_map["up"]:
-			move_up()
+	    if key == Character.key_map["up"]:
+		move_up()
 
-		    if key == Character.key_map["down"]:
-			move_down()
+	    if key == Character.key_map["down"]:
+		move_down()
 	```
 > The move functions are in the class so they'll need `self.` added. (I missed that!). We also need to reenable the keyhandler down below.
 
