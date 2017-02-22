@@ -52,7 +52,7 @@ Code from [Session09](https://raw.githubusercontent.com/bellcodo/creating-cliq/m
 		pass
 
 	    def move_left(self):
-			pass
+		pass
 
 	    def move_up(self):
 		pass
