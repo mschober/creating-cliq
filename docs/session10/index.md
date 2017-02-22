@@ -48,17 +48,17 @@ Code from [Session09](https://raw.githubusercontent.com/bellcodo/creating-cliq/m
 	> New stubs
 
 	```python
-	    def move_right(self):
-		pass
+def move_right(self):
+	pass
 
-	    def move_left(self):
-		pass
+def move_left(self):
+	pass
 
-	    def move_up(self):
-		pass
+def move_up(self):
+	pass
 
-	    def move_down(self):
-		pass
+def move_down(self):
+	pass
 	```
 4. Move the commented functionality from the move function into the stubs.
 	
