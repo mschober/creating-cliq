@@ -113,3 +113,7 @@ frame.set_keydown_handler(snake.move) #for move circle******
 ```
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/a79a4b4b51b99102cd5fc12842fabaf615340b6f)
+
+### Might look like this: directions
+![directions](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLNGsxdHpCWVFSNXc)
+
