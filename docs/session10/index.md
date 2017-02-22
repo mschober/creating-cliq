@@ -22,7 +22,7 @@ Code from [Session09](https://raw.githubusercontent.com/bellcodo/creating-cliq/m
 			if key == Character.key_map["right"]:
 				print "move right"
 
-			#self.circle_shape.update_x(Character.move_dist)
+				#self.circle_shape.update_x(Character.move_dist)
 				Character.vel = [Character.move_dist, 0]
 
 			if key == Character.key_map["left"]:
