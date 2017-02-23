@@ -101,6 +101,10 @@ class Body:
 
     def list_segments(self):
         return list(self.body_segments)
+    
+    def draw_me(self, canvas):
+        for seg in self.body_segments:
+            seg.draw_me(canvas)
 
 class Square:
     
@@ -108,10 +112,12 @@ class Square:
         self.x = x
         self.y = y
     
-    def draw_me(self):
-        size = self.SQUARE_PIXEL_SIZE
-        x = pos[0] * size
-        y = pos[1] * size
+    def draw_me(self, canvas):
+        size = GLOBAL_DEFAULT_SQUARE_SIZE
+        
+        x = self.x
+        y = self.y
+
         canvas.draw_polygon(
             rect_coords(size, size, (x,y)),
             1, 'Green', 'Orange'
@@ -167,6 +173,7 @@ class Character:
 
     def draw_me(self, canvas):
         self.draw_circle(canvas, self.circle_shape.center_point)
+        self.body.draw_me(canvas)
     
     def draw_circle(self, canvas, center):
         canvas.draw_circle(
@@ -209,14 +216,14 @@ class Character:
     
     def update_direction(self, new_point):
         curr_center = self.circle_shape.center_point
+        sqr_topleft_point = map(lambda pt: pt - IN_SQUARES/2, curr_center)
+        self.body.append(Square(
+                sqr_topleft_point[0],
+                sqr_topleft_point[1]                
+        ))        
         shift_point = map(lambda shift: shift*IN_SQUARES, new_point)
         next_center = reduce(lambda x,y: (y[0] + x[0],y[1] + x[1]), [shift_point,curr_center])
         self.circle_shape.center_point = next_center
-        self.body.append(Square(
-                next_center[0],
-                next_center[1]                
-            ))
-        print self.body.body_segments
     
     def move_right(self):
         print "move right"
