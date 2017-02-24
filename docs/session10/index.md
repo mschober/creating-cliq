@@ -140,4 +140,37 @@ update_direction((0,-1)) # up
 update_direction((0,1))  # down
 ```
 
-> The `1` represents moving on square in the grid, but you need to multiple by `IN_SQUARES` inside the `update_direction` function. 
+> The `1` represents moving on square in the grid, but you need to multiple by `IN_SQUARES` inside the `update_direction` function. Multipling both values in incoming `shift_point` can be done with either a `map` technique or a `for:each` loop.
+
+#### Map
+```python
+	# Will multiply IN_SQUARES by both the x and y points in shift_point
+        sqr_shift_point = map(lambda pt: pt*IN_SQUARES, shift_point)
+```
+
+#### For:Each
+```python
+	# Will multiply IN_SQUARES by both the x and y points in shift_point
+	for pt in shift_point:
+		sqr_shift_point = []
+		sqr_shift_point.append(pt*IN_SQUARES)
+```
+
+> Once the `shift_point` has been updated to the grid square width, its time to sum the `x`'s and `y`'s of the `shift_point` and `center_point`. This can also be accomplished with either a `reduce` techinque or by simplying summing the `x`'s and `y`'s directly.
+
+#### Reduce
+```python
+        pt = self.circle_shape.center_point
+	# Will create a new point with the current position is summed with the shift amount.
+        new_point = reduce(lambda x,y: (x[0]+y[0],x[1]+y[1]), [pt, sqr_shift_point])
+```
+
+#### Simple Assignment
+```python
+        pt = self.circle_shape.center_point
+	# Will create a new point with the current position is summed with the shift amount.
+        new_point = (
+            pt[0] + sqr_shift_point[0], 
+            pt[1] + sqr_shift_point[1], 
+        )
+```
