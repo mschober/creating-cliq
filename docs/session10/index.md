@@ -174,3 +174,9 @@ update_direction((0,1))  # down
             pt[1] + sqr_shift_point[1], 
         )
 ```
+
+> The final bit is to assign the `new_point` you've created to the `center_point` of the snake.
+
+```python
+        self.circle_shape.center_point = new_point
+```
