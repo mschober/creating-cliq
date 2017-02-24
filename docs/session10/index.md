@@ -129,3 +129,13 @@ frame.set_keydown_handler(snake.move) #for move circle******
         self.circle_shape.center_point = next_center
 ```
 
+> Run the code and try moving to the right.
+
+> The next step is to pull out a new function that takes a parameter indicating which direction to move. The four possible inputs are
+
+```python
+right: (1,0)
+left: (-1,0)
+up: (0,-1)
+down:(0,1)
+```
