@@ -119,3 +119,13 @@ frame.set_keydown_handler(snake.move) #for move circle******
 
 > Reenabling the keydown handler for each of the cardinal directions is apart of a coding principle that reduces the liklihood you'll be scratching your head about what is broken and why. The idea is implement the simplest thing that you know keeps everything running correctly. Print statements in the bodies of each of the movement keys allows you to run the app again, press all the keys, and make sure there is not an interpretation error or that one of the keys doesn't print. Along with this philosophy lets pick 1 direction and try and implement a solution for moving the snake head. If it works for one direction it should be straight forward to adapt a solution for the others. Hint hint since the other directions are directly dependent on the same logic this is a great time to use a method to handle the logic. But feel free to start in the body of the `up` direction first and port the logic to a method after it is working.
 
+> To move right what needs to happen? Update the `center_point` of the `circle_shape` on the snake by `1 square` width in the positive `x` direction.
+
+```python
+    def move_right(self):
+        print "move right"
+        curr_center = self.circle_shape.center_point
+        next_center = (curr_center[0] + IN_SQUARES, curr_center[1])
+        self.circle_shape.center_point = next_center
+```
+
