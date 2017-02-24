@@ -180,3 +180,29 @@ update_direction((0,1))  # down
 ```python
         self.circle_shape.center_point = new_point
 ```
+
+> Updating the rest of the directions is very simple because the function is designed for ease of use.
+
+```python
+    def move_left(self):
+        print "move left"
+        self.update_direction((-1,0))
+
+        #self.circle_shape.update_x(-Character.move_dist)    
+        #Character.vel = [-Character.move_dist, 0]
+
+    def move_up(self):
+        print "move up"
+        self.update_direction((0,-1))
+
+        #self.circle_shape.update_y(-Character.move_dist)
+        #Character.vel = [0, -Character.move_dist]
+    
+    def move_down(self):
+        print "move down"
+        self.update_direction((0,1))
+
+        #self.circle_shape.update_y(Character.move_dist)
+        #Character.vel = [0, Character.move_dist]
+
+```
