@@ -22,6 +22,21 @@ def rect_coords (length, height, startpos = (0, 0)) :
         (x + length, y)  
     ]
 
+class Square:
+    
+    def __init__(self, x, y, size=GLOBAL_DEFAULT_SQUARE_SIZE):
+        self.x = x
+        self.y = y
+        self.size = size
+        
+    def draw_me(self, canvas):        
+        (x, y) = self.x, self.y
+        size = self.size
+        canvas.draw_polygon(
+            rect_coords(size, size, (x,y)),
+            1, 'Green', 'Orange'
+        )
+
 class SquareGrid:
     
     SQUARE_PIXEL_SIZE = GLOBAL_DEFAULT_SQUARE_SIZE
@@ -38,21 +53,16 @@ class SquareGrid:
         num_rows = self.NUM_ROWS
         num_cols = self.NUM_COLS
         grid_elements = []
-        
+        size = self.SQUARE_PIXEL_SIZE
         for x in range(num_rows):
             for y in range(num_cols):
-                grid_elements.append((x+BASE_SHIFT_X,y+BASE_SHIFT_Y))
+                grid_elements.append(Square((x+BASE_SHIFT_X)*size,(y+BASE_SHIFT_Y)*size))
         return grid_elements
 
     def draw_me(self, canvas):
-        size = self.SQUARE_PIXEL_SIZE
         for pos in self.grid_elements:
-            x = pos[0] * size
-            y = pos[1] * size
-            canvas.draw_polygon(
-                rect_coords(size, size, (x,y)),
-                1, 'Green', 'Orange'
-            )
+            pos.draw_me(canvas)
+
 
 class ShapeAttributes:
     def __init__ (self):
