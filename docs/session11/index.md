@@ -20,6 +20,7 @@ class Square:
 > The square should store its `(x,y)` coordinate and size. It should know how to convert the topleft point into a square on the canvas. If we take a minute and compose `SquareGrid` with a list of `Square`'s we can then use the `Square` class for the snake tail as well.
 
 > Here is the `init_grid` function from the `SquareGrid` class
+
 ```python
     def init_grid(self, width, height):
         num_rows = self.NUM_ROWS
