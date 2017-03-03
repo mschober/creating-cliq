@@ -1,18 +1,23 @@
 # Session 11
 > Snake tail on the grid
 
+## Outline
+1. Construct a square object which can draw itself.
+2. 
+
 #### Square class stub
 ```python
 class Square:
-	def __init__(self, x,y):
+	def __init__(self, x, y, size=GLOBAL_DEFAULT_SQUARE_SIZE):
 		self.x = x
 		self.y = y
+		self.size = size
 		
 	def draw_me(self, canvas):
 		pass
 ```
 
-> The square should store its `(x,y)` coordinate and know how to convert the topleft point into a square on the canvas. We already accomplished this in the `SquareGrid` class. Initially we can cp/pst the code from that class, but we'll want to refactor the `SquareGrid` class to use `Square` objects.
+> The square should store its `(x,y)` coordinate and know how to convert the topleft point into a square on the canvas. As well as its size. If we take a minute and compose `SquareGrid` with a list of `Square`'s we can then use the `Square` class for the snake tail as well.
 
 > This is the `draw_me` from `SquareGrid`
 ```python
