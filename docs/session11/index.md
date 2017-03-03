@@ -34,12 +34,14 @@ class Square:
 ```
 
 > The `tuple` that is saved in the `grid_elements` list is the data that we want to save in a our new `Square` class.
+
 ```python
 (x+BASE_SHIFT_X,y+BASE_SHIFT_Y)
 ```
 
 
 > This is the `draw_me` from `SquareGrid`
+
 ```python
     def draw_me(self, canvas):
         size = self.SQUARE_PIXEL_SIZE
@@ -55,6 +57,7 @@ class Square:
 > Notice that it is doing two things. 1) looping over `body_segments`. 2) Printing `squares`. We want to push the printing responsibility to the `Square` object so the grid can focus on just looping over the list of `grid_elements`.
 
 > Make the body of the four loop into the `draw_me` of the `Square` class.
+
 ```python
             x = pos[0] * size
             y = pos[1] * size
