@@ -1,4 +1,4 @@
-# Session11
+# Session 11
 > Snake tail on the grid
 
 #### Square class stub
