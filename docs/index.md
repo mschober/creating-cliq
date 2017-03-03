@@ -40,3 +40,8 @@
 > Snake on the grid.
 
 * [Session 10](session10)
+
+## Session 11
+> Snake on the grid.
+
+* [Session 11](session11)
