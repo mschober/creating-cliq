@@ -6,7 +6,7 @@
 	1. Create `Square` stub.
 	2. Put squares into the grid instead of `tuples`.
 	3. Implement a `draw_me` function based on `Square` data.
-2. 
+2. Push squares into a snake tail.
 
 #### Construct a square object which can draw itself.
 
@@ -117,6 +117,6 @@ class Square:
         )
 ```
 
-
+### Push squares into a snake tail.
 
 
