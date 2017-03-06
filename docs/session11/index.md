@@ -79,7 +79,6 @@ class Square:
 
 > *Delegate* the drawing of the squares to the `Square` class. In order to delegate loop over the `grid_elements` and run `draw_me` on the square.
 
-
 ```python
     def draw_me(self, canvas):
         for square in self.grid_elements:
