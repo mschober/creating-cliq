@@ -8,7 +8,10 @@
 	3. Implement a `draw_me` function based on `Square` data.
 2. 
 
-#### Square class stub
+#### Construct a square object which can draw itself.
+
+###### Square class stub
+
 ```python
 class Square:
 	def __init__(self, x, y, size=GLOBAL_DEFAULT_SQUARE_SIZE):
@@ -21,6 +24,9 @@ class Square:
 ```
 
 > The square should store its `(x,y)` coordinate and size. It should know how to convert the topleft point into a square on the canvas. If we take a minute and compose `SquareGrid` with a list of `Square`'s we can then use the `Square` class for the snake tail as well.
+
+
+##### Put squares into the grid instead of `tuples`.
 
 > Here is the `init_grid` function from the `SquareGrid` class
 
@@ -74,6 +80,8 @@ class Square:
         for square in self.grid_elements:
            square.draw_me(canvas)
 ```
+
+##### Implement a `draw_me` function based on `Square` data.
 
 > Simplicity is beauty. Now we need to update the `Square` class to handle the drawing based on the data available. 
 
