@@ -3,9 +3,9 @@
 
 ## Outline
 1. Construct a square object which can draw itself.
-	i. Create `Square` stub.
-	ii. Put squares into the grid instead of `tuples`.
-	iii.
+	1. Create `Square` stub.
+	2. Put squares into the grid instead of `tuples`.
+	3. Implement a `draw_me` function based on `Square` data.
 2. 
 
 #### Square class stub
