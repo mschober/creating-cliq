@@ -70,7 +70,12 @@ class Square:
             )
 ```
 
-> Notice that it is doing two things. 1) looping over `body_segments`. 2) Printing `squares`. We want to push the printing responsibility to the `Square` object so the grid can focus on just looping over the list of `grid_elements`.
+> Notice that it is doing two things. 
+
+1. looping over `body_segments`. 
+2. Printing `squares`. 
+
+> We want to push the printing responsibility to the `Square` object so the grid can focus on just looping over the list of `grid_elements`.
 
 > *Delegate* the drawing of the squares to the `Square` class. In order to delegate loop over the `grid_elements` and run `draw_me` on the square.
 
