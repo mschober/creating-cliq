@@ -84,12 +84,13 @@ class Square:
         for square in self.grid_elements:
            square.draw_me(canvas)
 ```
+>  Simplicity is beauty.
 
 * Diff of code [here](https://github.com/bellcodo/creating-cliq/commit/6923b736677ae3af6d8d755548d10c9eef831cf1#diff-31e8a04db2a0c99989f04d22bc79622a)
 
 ##### Implement a `draw_me` function based on `Square` data.
 
-> Simplicity is beauty. Now we need to update the `Square` class to handle the drawing based on the data available. 
+>Now we need to update the `Square` class to handle the drawing based on the data available. 
 
 ```python
 class Square:
