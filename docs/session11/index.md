@@ -169,21 +169,21 @@ class Body:
 ##### Push squares when updating movement.
 > Great! The snake body prints if there are `squares` in the body. Remove the squares from the *initialization* and lets push squares whenever we update the movement.
 
-> Here is the `update_direction` method today. Once we get the old `pt` we need to put that in the body.
-
-        self.body.append(Square(pt[0]/IN_SQUARES, pt[1]/IN_SQUARES))
-
+> Here is the `update_direction` method today. Once we get the old `pt` we need to put it in the body. One tricky part is getting the `body_segments` to print on the screen. The problem is that `pt` is based on the pixels of the `circle_shape`, but the `Square` object needs to know where on the *grid* to put the square. To fix this we need to divide both the `x` and `y` by the global size `IN_SQUARES`.
 
 ```python
     def update_direction(self, shift_point):
         sqr_shift_point = map(lambda pt: pt*IN_SQUARES, shift_point)
         pt = self.circle_shape.center_point
+        self.body.append(Square(pt[0]/IN_SQUARES, pt[1]/IN_SQUARES))	
         new_point = (
             pt[0] + sqr_shift_point[0], 
             pt[1] + sqr_shift_point[1], 
         )
         self.circle_shape.center_point = new_point
 ```
+
+> Take a look! You should be getting squares rendering each time you move.
 
 ### Might look like this: offset snake
 ![offset snake](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLOVIyZVVoeUdyWGM)
