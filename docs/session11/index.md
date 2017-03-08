@@ -7,6 +7,8 @@
 	2. Put squares into the grid instead of `tuples`.
 	3. Implement a `draw_me` function based on `Square` data.
 2. Push squares into a snake tail.
+	1. Print squares that are in snake body.
+	2. Push squares when updating movement.
 
 #### Construct a square object which can draw itself.
 
@@ -122,4 +124,50 @@ class Square:
 
 ### Push squares into a snake tail.
 
+#####  Print squares that are in snake body.
+> Each time through the print loop we want the snake `body_segments` to get printed. This means where the snake head is getting printed
+we need to update and add printing for the `body`.
+
+```python
+    def draw_me(self, canvas):
+        self.draw_circle(canvas, self.circle_shape.center_point)
+        self.body.draw_me(canvas)
+```
+
+> Body doesn't have a `draw_me` function so add it. Note the body is just a list of `Square`s so you should be able to write a simple for loop that calls `draw_me` on each of the squares.
+
+```python
+    def draw_me(self, canvas):
+        for sqr in self.body_segments:
+            sqr.draw_me(canvas)
+```
+
+> Lets put a few `Square`s into the body during *initialization* so we can verify all the printing is *wired up* correctly.
+
+> You're `Body` class should look like this
+
+```python
+class Body:
+
+    def __init__(self):
+        self.body_segments = [Square(0,0), Square(2,2), Square(1,1)]
+
+    def append(self, segment):
+        self.body_segments.append(segment)
+
+    def list_segments(self):
+        return list(self.body_segments)
+    
+    def draw_me(self, canvas):
+        for sqr in self.body_segments:
+            sqr.draw_me(canvas)
+```
+
+### Might look like this: offset snake
+![offset snake](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLMnU2a0lKd2tlWFk)
+
+##### Push squares when updating movement.
+
+### Might look like this: offset snake
+![offset snake](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLOVIyZVVoeUdyWGM)
 
