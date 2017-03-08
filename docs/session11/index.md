@@ -163,10 +163,27 @@ class Body:
             sqr.draw_me(canvas)
 ```
 
-### Might look like this: offset snake
-![offset snake](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLMnU2a0lKd2tlWFk)
+### Might look like this: diag-snake
+![diag-snake](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLMnU2a0lKd2tlWFk)
 
 ##### Push squares when updating movement.
+> Great! The snake body prints if there are `squares` in the body. Remove the squares from the *initialization* and lets push squares whenever we update the movement.
+
+> Here is the `update_direction` method today. Once we get the old `pt` we need to put that in the body.
+
+        self.body.append(Square(pt[0]/IN_SQUARES, pt[1]/IN_SQUARES))
+
+
+```python
+    def update_direction(self, shift_point):
+        sqr_shift_point = map(lambda pt: pt*IN_SQUARES, shift_point)
+        pt = self.circle_shape.center_point
+        new_point = (
+            pt[0] + sqr_shift_point[0], 
+            pt[1] + sqr_shift_point[1], 
+        )
+        self.circle_shape.center_point = new_point
+```
 
 ### Might look like this: offset snake
 ![offset snake](https://drive.google.com/uc?export=download&id=0B3SFnARVIcGLOVIyZVVoeUdyWGM)
